@@ -1,7 +1,7 @@
 return {
     {
         "rebelot/kanagawa.nvim",
-        lazy = false,
+        lazy = true,
         enabled = true,
         config = function()
             -- Default options:
@@ -29,7 +29,6 @@ return {
                         light = "lotus"
                     },
                 })
-                vim.cmd("colorscheme kanagawa")
             end,
     }
 }

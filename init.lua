@@ -19,3 +19,5 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({{import = "plugins"}})
 
+-- vim.cmd("colorscheme kanagawa")
+vim.cmd([[colorscheme monokai-pro]])

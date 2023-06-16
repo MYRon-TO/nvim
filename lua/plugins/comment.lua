@@ -8,15 +8,7 @@ return {
             ---Whether the cursor should stay at its position
             sticky = true,
             ---Lines to be ignored while (un)comment
-            ignore = {
-                ignore = function()
-                    -- Only ignore empty lines for lua files
-                    -- if vim.bo.filetype == 'lua' then
-                    --     return '^$' -- 忽视空行
-                    -- end
-                end,
-            },
-            ---LHS of toggle mappings in NORMAL mode
+            ignore = '^$',           ---LHS of toggle mappings in NORMAL mode
             toggler = {
                 ---Line-comment toggle keymap
                 line = 'gcc',

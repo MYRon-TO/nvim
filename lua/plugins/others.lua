@@ -36,4 +36,7 @@ return {
             {"cud", ":UndotreeToggle<CR>", "n"},
         },
     },
+    {
+        'git@github.com:ap/vim-css-color',
+    },
 }
