@@ -2,13 +2,14 @@ local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = false }
 local opts_si = { noremap = true, silent = true }
 
+
+-- Leader key
+vim.g.mapleader = ' '
+
 -- useful
 map ('n', 'c<space>', 'o<Esc>', opts)
 map ('n', 'cd', '0D', opts)
 map ('n', '\nh', ':nohl<CR>', opts_si)
-
--- Leader key
-vim.g.mapleader = ' '
 
 -- quick move
 map ('n', '<c-j>', '5j', opts)
@@ -58,9 +59,3 @@ map ('v', 'J', ":m '>+1<CR>gv=gv", opts)
 map ('v', 'K', ":m '<-2<CR>gv=gv", opts)
 map ('x', 'J', ":m '>+1<CR>gv=gv", opts)
 map ('x', 'K', ":m '<-2<CR>gv=gv", opts)
-
--- Joshuto
-map ('n', '<leader>cj', ':Joshuto<CR>', opts)
-
--- lazygit
-map ('n', '<leader>gg', ':LazyGit<CR>', opts)

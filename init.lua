@@ -1,8 +1,8 @@
 require "basic/options"
 require "basic/keymap"
-vim.cmd [[
-    source ~/.config/nvim/lua/basic/CompileFunction.vim
-]]
+-- vim.cmd [[
+--     source ~/.config/nvim/lua/basic/CompileFunction.vim
+-- ]]
 
 -- lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -17,7 +17,7 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
-require("lazy").setup({{import = "plugins"}})
+require("lazy").setup("plugins")
 
 -- vim.cmd("colorscheme kanagawa")
 vim.cmd([[colorscheme monokai-pro]])

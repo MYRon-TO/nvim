@@ -1,6 +1,7 @@
 return{
     {
         'git@github.com:loctvl842/monokai-pro.nvim',
+        lazy = true,
         config = function ()
             require("monokai-pro").setup({
             transparent_background = false,
