@@ -1,6 +1,6 @@
 return {
     {
-        'akinsho/bufferline.nvim', 
+        'git@github.com:akinsho/bufferline.nvim', 
         version = "*", 
         dependencies = 'nvim-tree/nvim-web-devicons',
         config = {

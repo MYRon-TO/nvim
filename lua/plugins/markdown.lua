@@ -1,6 +1,6 @@
 return {
     {
-        "Zeioth/markmap.nvim",
+        "git@github.com:Zeioth/markmap.nvim",
         build = "yarn global add markmap-cli",
         cmd = {"MarkmapOpen", "MarkmapSave", "MarkmapWatch", "MarkmapWatchStop"},
         opts = {
@@ -35,7 +35,7 @@ return {
         -- ft = { "markdown" },
     },
     {
-        "iamcco/markdown-preview.nvim",
+        "git@github.com:iamcco/markdown-preview.nvim",
         build = "cd app && yarn install",
         lazy = true,
         ft = { "markdown" },

@@ -10,7 +10,7 @@ local servers = {
 }
 return {
     {
-        "williamboman/mason-lspconfig.nvim",
+        "git@github.com:williamboman/mason-lspconfig.nvim",
         lazy = false,
         config = function()
             require("mason-lspconfig").setup({
@@ -20,7 +20,7 @@ return {
         end,
     },
     {
-        "neovim/nvim-lspconfig",
+        "git@github.com:neovim/nvim-lspconfig",
         lazy = false,
         config = function()
             local lspconfig = require("lspconfig")

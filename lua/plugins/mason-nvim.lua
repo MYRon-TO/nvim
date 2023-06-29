@@ -1,6 +1,6 @@
 return {
     {
-        "williamboman/mason.nvim",
+        "git@github.com:williamboman/mason.nvim",
         build = ":MasonUpdate", -- :MasonUpdate updates registry contents
         lazy = true,
         config = function()

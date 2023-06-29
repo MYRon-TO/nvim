@@ -1,19 +1,19 @@
 return {
     {
-        'hrsh7th/nvim-cmp',
+        'git@github.com:hrsh7th/nvim-cmp',
         dependencies = {
-            'neovim/nvim-lspconfig',
-            'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-buffer',
-            'hrsh7th/cmp-path',
-            'hrsh7th/cmp-cmdline',
+            'git@github.com:neovim/nvim-lspconfig',
+            'git@github.com:hrsh7th/cmp-nvim-lsp',
+            'git@github.com:hrsh7th/cmp-buffer',
+            'git@github.com:hrsh7th/cmp-path',
+            'git@github.com:hrsh7th/cmp-cmdline',
 
-            'onsails/lspkind-nvim',
+            'git@github.com:onsails/lspkind-nvim',
 
             --snips
-            'SirVer/ultisnips',
-            'quangnguyen30192/cmp-nvim-ultisnips',
-            'honza/vim-snippets',
+            'git@github.com:SirVer/ultisnips',
+            'git@github.com:quangnguyen30192/cmp-nvim-ultisnips',
+            'git@github.com:honza/vim-snippets',
             --'hrsh7th/cmp-vsnip',
             --'hrsh7th/vim-vsnip',
         },

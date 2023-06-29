@@ -1,6 +1,6 @@
 return {
     {
-        "github/copilot.vim",
+        "git@github.com:github/copilot.vim",
         lazy = false,
         config = function()
             vim.cmd [[
