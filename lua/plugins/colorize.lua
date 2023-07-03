@@ -1,6 +1,6 @@
 return {
     {
-        'git@github.com:norcalli/nvim-colorizer.lua',
+        'norcalli/nvim-colorizer.lua',
         config = function()
             require 'colorizer'.setup {
               '*'; -- Highlight all files, but customize some others.

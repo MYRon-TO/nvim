@@ -1,6 +1,6 @@
 return{
     {
-        'git@github.com:loctvl842/monokai-pro.nvim',
+        'loctvl842/monokai-pro.nvim',
         lazy = true,
         config = function ()
             require("monokai-pro").setup({

@@ -1,7 +1,7 @@
 return {
-    {"git@github.com:folke/which-key.nvim", lazy = true},
+    {"folke/which-key.nvim", lazy = true},
     {
-        "git@github.com:gcmt/wildfire.vim",
+        "gcmt/wildfire.vim",
         config = function()
             vim.cmd[[
                 " use '*' to mean 'all other filetypes'
@@ -45,9 +45,9 @@ return {
     },
     {
         {
-            "git@github.com:tpope/vim-surround",
+            "tpope/vim-surround",
             dependencies = {
-                "git@github.com:tpope/vim-repeat",
+                "tpope/vim-repeat",
             }
         },
     },

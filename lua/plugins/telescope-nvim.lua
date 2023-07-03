@@ -1,5 +1,5 @@
 return {
-    'git@github.com:nvim-telescope/telescope.nvim',
+    'nvim-telescope/telescope.nvim',
     tag = '0.1.1',
     dependencies = { 'nvim-lua/plenary.nvim' },
     lazy = true,

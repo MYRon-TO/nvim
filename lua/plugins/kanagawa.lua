@@ -1,6 +1,6 @@
 return {
     {
-        "git@github.com:rebelot/kanagawa.nvim",
+        "rebelot/kanagawa.nvim",
         lazy = true,
         enabled = true,
         config = function()

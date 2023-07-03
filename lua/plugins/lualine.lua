@@ -1,7 +1,7 @@
 -- an air line in lua
 return{
-    'git@github.com:nvim-lualine/lualine.nvim',
-    dependencies = { 'git@github.com:nvim-tree/nvim-web-devicons' },
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
         require('lualine').setup {
             options = {

@@ -1,6 +1,6 @@
 return {
     {
-        "git@github.com:Zeioth/markmap.nvim",
+        "Zeioth/markmap.nvim",
         build = "yarn global add markmap-cli",
         cmd = {"MarkmapOpen", "MarkmapSave", "MarkmapWatch", "MarkmapWatchStop"},
         opts = {
@@ -11,7 +11,7 @@ return {
         config = function(_, opts) require("markmap").setup(opts) end
     },
     {
-        'git@github.com:dhruvasagar/vim-table-mode',
+        'dhruvasagar/vim-table-mode',
         lazy = true,
         config = function()
             vim.cmd [[
@@ -35,7 +35,7 @@ return {
         -- ft = { "markdown" },
     },
     {
-        "git@github.com:iamcco/markdown-preview.nvim",
+        "iamcco/markdown-preview.nvim",
         build = "cd app && yarn install",
         lazy = true,
         ft = { "markdown" },

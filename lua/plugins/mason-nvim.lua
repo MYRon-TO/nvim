@@ -1,8 +1,8 @@
 return {
     {
-        "git@github.com:williamboman/mason.nvim",
+        "williamboman/mason.nvim",
         build = ":MasonUpdate", -- :MasonUpdate updates registry contents
-        lazy = true,
+        -- lazy = true,
         config = function()
             require("mason").setup()
         end,

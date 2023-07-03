@@ -1,6 +1,6 @@
 return {
     {
-        "git@github.com:CRAG666/code_runner.nvim",
+        "CRAG666/code_runner.nvim",
         lazy = true,
         config = function()
             require('code_runner').setup({
