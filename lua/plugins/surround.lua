@@ -7,7 +7,7 @@ return {
                 " use '*' to mean 'all other filetypes'
                 " in this example, html and xml share the same text objects
                 let g:wildfire_objects = {
-                    \ "*" : ["i'", 'i"', "i)", "i]", "i}", "i>"],
+                    \ "*" : ["i'", 'i"', "i)", "i]", "i}", "i>",'i`'],
                     \ "html,xml" : ["at", "it"],
                 \ }
             ]]
@@ -22,6 +22,19 @@ return {
             config = function()
                 require("nvim-surround").setup({
                     -- Configuration here, or leave empty to use defaults
+                    keymaps = {
+                        insert = "<C-g>r",
+                        insert_line = "<C-g>R",
+                        normal = "yr",
+                        normal_cur = "yrr",
+                        normal_line = "yR",
+                        normal_cur_line = "yRR",
+                        visual = "yr",
+                        visual_line = "yR",
+                        delete = "dr",
+                        change = "cr",
+                        change_line = "cR",
+                    },
                 })
             end
         },
