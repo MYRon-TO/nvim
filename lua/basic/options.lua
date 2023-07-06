@@ -49,6 +49,12 @@ opt.listchars      = {
     nbsp = "␣",
 }
 
+opt.foldmethod     = "indent"
+opt.foldlevel      = 99
+opt.foldlevelstart = 99
+opt.foldcolumn     = '0'
+opt.foldenable     = true
+
 -- 复制后高亮
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	pattern = { "*" },
@@ -60,53 +66,4 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 })
 
 opt.syntax = 'on'
---opt.compatible = false
-
---opt.termguicolors = true
---opt.tabstop = 4
---opt.shiftwidth = 4
---opt.expandtab = true
----- opt.sorfttabstop = 4
-
---opt.list = true
---opt.listchars = {
-    --tab = '▸ ',
-    --trail = '·',
-    --extends = '…',
-    --precedes = '…',
-    --nbsp = '␣',
---}
-
----- mouse
---opt.mouse = 'a'
-
---opt.wrap = true
---opt.linebreak = true
-
---opt.clipboard = 'unnamedplus'
-
---opt.backspace=indent,eol,start
---opt.autochdir = true
-
---opt.encoding = 'utf-8'
---opt.nocompatible = true
-
---opt.showcmd = true
---opt.showmatch = true
-
---opt.wildmenu = true
---opt.wildmode = 'list:longest,full'
-
---opt.hlsearch = true
---opt.incsearch = true
---opt.smartcase = true
-
---opt.foldmethod = 'indent'
---opt.foldlevel = 99
-
-----vim.bo.filetype = 'on'
-----vim.bo.filetype.indent = true
-----vim.bo.filetype.plugin = true
-
---vim.o.t_ut = ''
-
+-- vim.cmd([[highlight ]])

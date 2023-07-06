@@ -7,7 +7,7 @@ return {
         },
         lazy = true,
         keys = {
-            {"<leader>gg", ":LazyGit<CR>", "n"},
+            {"<leader>lg", ":LazyGit<CR>", "n"},
         },
     },
     {

@@ -1,7 +1,8 @@
 return {
     {
         "github/copilot.vim",
-        lazy = false,
+        -- lazy = false,
+        event = "VeryLazy",
         config = function()
             vim.cmd [[
                 let g:copilot_no_tab_map = v:true
