@@ -6,7 +6,7 @@ local servers = {
     "pyright",
     "marksman",
     "jsonls",
-    -- "bashls",
+    "bashls",
 }
 return {
     {

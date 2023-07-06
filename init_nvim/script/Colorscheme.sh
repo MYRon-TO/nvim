@@ -3,13 +3,13 @@ function init_colorscheme(){
     echo "Choose a ColorScheme:"
     declare -A colorscheme
     count=0
-    for name in ` ls ~/.config/nvim/init_nvim/unique/colorscheme/ `
+    for name in ` ls ~/.config/nvim/init_nvim/unique/colorscheme/`
     do
         count=$((count+1))
         colorscheme[$count]=$name
         echo -e "${count})\t${name}"
     done
-    unset $name
+    unset name
     # get what U like
     while true
     do
@@ -28,7 +28,7 @@ function init_colorscheme(){
     done
     unset count
     # write to colorscheme.lua
-    cp ../unique/colorscheme/${colorscheme[$Choice_ColorScheme]} ~/.config/nvim/lua/plugins/colorscheme.lua
+    cp ~/.config/nvim/init_nvim/unique/colorscheme/${colorscheme[$Choice_ColorScheme]} ~/.config/nvim/lua/plugins/colorscheme.lua
     unset Choice_ColorScheme
     unset colorscheme
 }

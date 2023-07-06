@@ -1,4 +1,6 @@
 *.swp
 .DS_Store
-./lua/plugins/colorscheme.lua
-./init_nvim/IsFirst
+/lua/plugins/colorscheme.lua
+/init_nvim/IsFirst
+/node_modules/*
+/package.json

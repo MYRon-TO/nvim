@@ -1,7 +1,7 @@
 return {
     {
         'loctvl842/monokai-pro.nvim',
-        lazy = true,
+        lazy = false,
         config = function()
             require("monokai-pro").setup({
                 transparent_background = false,
@@ -49,7 +49,7 @@ return {
                 -- @param c Colorscheme
                 override = function(c) end,
             })
-        vim.cmd([[colorscheme monokai-pro]])
+        vim.cmd.colorscheme "monokai-pro"
         end
     },
 }

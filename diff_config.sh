@@ -2,6 +2,41 @@
 # Used to init the nvim in different devices
 
 # --------------------
+# Choose a ColorScheme
+# --------------------
+function Choose_a_ColorScheme() {
+    if test ! -e ~/.config/nvim/lua/plugins/colorscheme.lua
+    then
+        source ./init_nvim/script/Colorscheme.sh
+    else
+        while true
+        do
+            echo "ColorScheme found"
+            echo "Do you want to change it?"
+            read -p "Y/N Default: [N]" YorN
+            if [ ! $YorN ]
+            then
+                YorN=N
+            fi
+            if [ $YorN = "Y" -o $YorN = "y" ]
+            then
+                rm -f ~/.config/nvim/lua/plugins/colorscheme.lua
+                source ./init_nvim/script/Colorscheme.sh
+                break
+            elif [ $YorN = "N" -o $YorN = "n" ]
+            then
+                echo "Skip"
+                break
+            else
+                echo "Wrong input"
+                continue
+            fi
+        done
+    fi
+    unset YorN
+}
+
+# --------------------
 # IS First ?
 # --------------------
 if test -e ./init_nvim/IsFirst
@@ -15,10 +50,6 @@ then
         echo "q) Quit"
         echo -e "\033[0m"
         read Choice
-        # if [ ! $Choice ]    # if nil
-        # then
-        #     continue
-        # fi
         case $Choice in
             c)
                 Choose_a_ColorScheme
@@ -38,29 +69,3 @@ else
     echo "This is the first time to use this script"
     Choose_a_ColorScheme
 fi
-
-# --------------------
-# Choose a ColorScheme
-# --------------------
-function Choose_a_ColorScheme() {
-    if test ! -e ~/.config/nvim/lua/plugins/colorscheme.lua
-    then
-        source ./init_nvim/script/Colorscheme.sh
-    else
-        echo "ColorScheme founde"
-        echo "Do you want to change it?"
-        read -p "Y/N Default: [N]" YorN
-        if [ ! $YorN ]
-        then
-            YorN=N
-        fi
-        if [ $YorN = "Y" ]
-        then
-            rm -f ~/.config/nvim/lua/plugins/colorscheme.lua
-            source ./init_nvim/script/Colorscheme.sh
-        else
-            echo "Skip"
-        fi
-    fi
-    unset YorN
-}
