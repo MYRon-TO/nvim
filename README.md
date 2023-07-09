@@ -1,5 +1,5 @@
 # MY NEOVIM CONFIG
-## Here's cheetsheet
+## Here's cheatsheet
 ### How to use Shell
 ```shell
 :r !command `shell command`
