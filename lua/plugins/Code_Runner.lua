@@ -22,6 +22,7 @@ return {
                     },
                     python = "time python3 -u",
                     typescript = "time deno run",
+                    go = "time go run",
                     sh = {
                         "time bash",
                     },

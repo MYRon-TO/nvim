@@ -7,6 +7,8 @@ local servers = {
     "marksman",
     "jsonls",
     "bashls",
+    "golangci_lint_ls",
+    "omnisharp",
 }
 return {
     {
