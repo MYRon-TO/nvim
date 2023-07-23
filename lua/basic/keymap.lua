@@ -60,3 +60,6 @@ map ('v', 'J', ":m '>+1<CR>gv=gv", opts)
 map ('v', 'K', ":m '<-2<CR>gv=gv", opts)
 map ('x', 'J', ":m '>+1<CR>gv=gv", opts)
 map ('x', 'K', ":m '<-2<CR>gv=gv", opts)
+
+-- copy to clipboard
+map ('v', 'y', '"+y', opts)
