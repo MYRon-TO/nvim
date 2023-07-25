@@ -26,26 +26,43 @@ return {
                     sh = {
                         "time bash",
                     },
-                    rust = {
-                        "cd $dir &&",
-                        "rustc $fileName &&",
-                        "time $dir/$fileNameWithoutExt"
-                    },
+                    rust = function()
+                        return "cd $dir &&"
+                            .."rustc $fileName &&"
+                            .."time $dir/$fileNameWithoutExt"
+                    end,
+                    lua = function ()
+                        return "time lua $fileName"
+                    end
                 },
                 project = {
-
+                    ["~/Code/minigrep"]={
+                        name="minigrep",
+                        discription="A simple grep tool",
+                        -- filename="src/main.rs",
+                        -- command=function ()
+                        --     return "time cargo run"
+                        -- end,
+                        command="time cargo run",
+                    },
                 },
                 before_run_filetype = function()
                     vim.cmd(":w")
                 end,
+
+                mode = "term",
+                startinsert = true,
                 term = {
+                    position = "bot"
                 },
+
                 filetype_path = vim.fn.expand('~/.config/nvim/code_runner.json'),
-                project_path = vim.fn.expand('~/.config/nvim/project_manager.json')
+                project_path = vim.fn.expand('~/.config/nvim/project_manager.json'),
+
             })
         end,
         keys = {
-            { "<leader><CR>", ":RunCode<CR>", "n" },
+            { "<leader><CR>", ":RunCode<CR>", "n"},
         },
     },
 }
