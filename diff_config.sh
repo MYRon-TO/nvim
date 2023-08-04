@@ -55,6 +55,43 @@ function Choose_a_ColorScheme() {
 }
 
 # --------------------
+# Init a Indent
+# --------------------
+function Init_Indent() {
+    if test ! -e ~/.config/nvim/lua/plugins/indent.lua
+    then
+        cp ./init_nvim/unique/indent.lua ~/.config/nvim/lua/plugins/indent.lua
+        echo "Indent.lua copied"
+    else
+        while true
+        do
+            echo "Indent.lua found"
+            echo "Do you want to change it?"
+            read -p "Y/N Default: [N]" YorN
+            if [ ! $YorN ]
+            then
+                YorN=N
+            fi
+            if [ $YorN = "Y" -o $YorN = "y" ]
+            then
+                rm -f ~/.config/nvim/lua/plugins/indent.lua
+                cp ./init_nvim/unique/indent.lua ~/.config/nvim/lua/plugins/indent.lua
+                echo "Indent.lua copied"
+                break
+            elif [ $YorN = "N" -o $YorN = "n" ]
+            then
+                echo "Skip"
+                break
+            else
+                echo "Wrong input"
+                continue
+            fi
+        done
+    fi
+    unset YorN
+}
+
+# --------------------
 # IS First ?
 # --------------------
 if test -e ./init_nvim/IsFirst
@@ -65,12 +102,16 @@ then
     do
         echo -e "\033[33m"
         echo "c) ColorScheme"
+        echo "i) Indent"
         echo "q) Quit"
         echo -e "\033[0m"
         read Choice
         case $Choice in
             c)
                 Choose_a_ColorScheme
+                ;;
+            i)
+                Init_Indent
                 ;;
             q)
                 echo "Quit"
@@ -86,4 +127,5 @@ then
 else
     echo "This is the first time to use this script"
     Choose_a_ColorScheme
+    Init_Indent
 fi

@@ -36,22 +36,14 @@ return {
                     end
                 },
                 project = {
-                    ["~/Code/minigrep"]={
-                        name="minigrep",
-                        discription="A simple grep tool",
-                        -- filename="src/main.rs",
-                        -- command=function ()
-                        --     return "time cargo run"
-                        -- end,
-                        command="time cargo run",
-                    },
+
                 },
                 before_run_filetype = function()
                     vim.cmd(":w")
                 end,
 
                 mode = "term",
-                startinsert = true,
+                startinsert = false,
                 term = {
                     position = "bot"
                 },
