@@ -3,6 +3,6 @@
         "name":"minigrep",
         "description":"A simple grep-like tool written in Rust",
         "filename":"src/main.rs",
-        "command":"time cargo run how poem.txt"
+        "command":"time IGNORE_CASE=1 cargo run to poem.txt"
     }
 }
