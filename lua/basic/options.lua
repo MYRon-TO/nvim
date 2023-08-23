@@ -1,5 +1,7 @@
 local opt = vim.opt
 
+vim.o.autoread = true
+
 opt.backup         = false         -- no backup file
 opt.swapfile       = false         -- no swap file
 opt.undofile       = true          -- enable undo

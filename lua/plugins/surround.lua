@@ -1,16 +1,38 @@
 return {
+    -- {
+    --     "gcmt/wildfire.vim",
+    --     event = "VeryLazy",
+    --     config = function()
+    --         vim.cmd [[
+    --             " use '*' to mean 'all other filetypes'
+    --             " in this example, html and xml share the same text objects
+    --             let g:wildfire_objects = {
+    --                 \ "*" : ["i'", 'i"', "i)", "i]", "i}", "i>",'i`'],
+    --                 \ "html,xml" : ["at", "it"],
+    --             \ }
+    --         ]]
+    --     end,
+    -- },
     {
-        "gcmt/wildfire.vim",
+        "sustech-data/wildfire.nvim",
         event = "VeryLazy",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
         config = function()
-            vim.cmd [[
-                " use '*' to mean 'all other filetypes'
-                " in this example, html and xml share the same text objects
-                let g:wildfire_objects = {
-                    \ "*" : ["i'", 'i"', "i)", "i]", "i}", "i>",'i`'],
-                    \ "html,xml" : ["at", "it"],
-                \ }
-            ]]
+            require("wildfire").setup({
+                surrounds = {
+                    { "(", ")" },
+                    { "{", "}" },
+                    { "<", ">" },
+                    { "[", "]" },
+                },
+                keymaps = {
+                    init_selection = "<CR>",
+                    node_incremental = "<CR>",
+                    node_decremental = "<BS>",
+                },
+                -- filetype_exclude = { "qf" }, --keymaps will be unset in excluding filetypes
+                filetype_exclude = {}, --keymaps will be unset in excluding filetypes
+            })
         end,
     },
     {
