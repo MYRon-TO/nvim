@@ -14,7 +14,7 @@ return {
             defaults = {
                 -- Default configuration for telescope goes here:
                 -- config_key = value,
-                borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
+                -- borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
                 mappings = {
                     i = {
                         -- map actions.which_key to <C-h> (default: <C-/>)
@@ -34,6 +34,9 @@ return {
                 --   picker_config_key = value,
                 --   ...
                 -- }
+                find_files = {
+                    -- theme = "ivy",
+                },
                 -- Now the picker_config_key will be applied every time you call this
                 -- builtin picker
             },

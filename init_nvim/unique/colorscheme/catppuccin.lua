@@ -44,9 +44,13 @@ return {
                 cmp = true,
                 gitsigns = true,
                 nvimtree = true,
-                telescope = true,
+                telescope = {
+                    enabled = true,
+                    -- styles = "nvchad"
+                },
                 notify = false,
                 mini = false,
+                symbols_outline = true,
                 -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
             },
     })
