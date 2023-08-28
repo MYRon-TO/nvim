@@ -1,16 +1,26 @@
 local servers = {
-    "clangd",
-    "rust_analyzer",
-    "lua_ls",
-    "jdtls",
-    "pyright",
-    "marksman",
-    "jsonls",
-    "bashls",
-    "golangci_lint_ls",
-    "omnisharp",
+    "clangd", -- C/C++
+    "rust_analyzer", -- Rust
+    "lua_ls", -- Lua
+    "jdtls", -- Java
+    "pyright", -- Python
+    "marksman", -- Markdown
+    "jsonls", -- JSON
+    "bashls", -- Bash
+    "golangci_lint_ls", -- Go
+    "omnisharp", -- C#
+    "rome", -- Web(JS/TS, HTML, CSS)
 }
+
 return {
+    {
+        "williamboman/mason.nvim",
+        build = ":MasonUpdate", -- :MasonUpdate updates registry contents
+        -- lazy = true,
+        config = function()
+            require("mason").setup()
+        end,
+    },
     {
         "williamboman/mason-lspconfig.nvim",
         lazy = false,
@@ -21,6 +31,7 @@ return {
             })
         end,
     },
+
     {
         "neovim/nvim-lspconfig",
         lazy = false,
