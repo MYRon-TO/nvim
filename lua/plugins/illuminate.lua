@@ -2,8 +2,10 @@
 
 return {
     "RRethy/vim-illuminate",
-    lazy =false,
-    config = function ()
+    lazy = false,
+    -- event = "BufRead",
+    event = "VeryLazy",
+    config = function()
         -- default configuration
         vim.cmd("hi IlluminatedWordText guibg=#393E4D gui=none")
         require('illuminate').configure({

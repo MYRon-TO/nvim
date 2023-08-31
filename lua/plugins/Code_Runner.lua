@@ -28,10 +28,10 @@ return {
                     },
                     rust = function()
                         return "cd $dir &&"
-                            .."rustc $fileName &&"
-                            .."time $dir/$fileNameWithoutExt"
+                            .. "rustc $fileName &&"
+                            .. "time $dir/$fileNameWithoutExt"
                     end,
-                    lua = function ()
+                    lua = function()
                         return "time lua $fileName"
                     end
                 },
@@ -54,7 +54,11 @@ return {
             })
         end,
         keys = {
-            { "<leader><CR>", ":RunCode<CR>", "n"},
+            { "<leader><CR>", ":RunCode<CR>", "n" },
+        },
+        cmd = {
+            "CRFiletype",
+            "CRProjects",
         },
     },
 }
