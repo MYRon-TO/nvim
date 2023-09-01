@@ -13,6 +13,7 @@ return {
         require('telescope').setup {
             defaults = {
                 -- Default configuration for telescope goes here:
+                vimgrep_arguments = vimgrep_arguments,
                 -- config_key = value,
                 -- borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
                 mappings = {
@@ -36,6 +37,7 @@ return {
                 -- }
                 find_files = {
                     -- theme = "ivy",
+                    find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
                 },
                 -- Now the picker_config_key will be applied every time you call this
                 -- builtin picker
