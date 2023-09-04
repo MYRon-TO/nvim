@@ -2,9 +2,9 @@
     "todo": {
         "prefix": [ "todo" ],
         "body": [
-            "<-- !todo: ${1:discription} -->$2"
+            "// todo: ${1:todo}$2"
         ],
         "discription": "todo",
-        "scope": "markdown"
+        "scope": "rust"
     }
 }

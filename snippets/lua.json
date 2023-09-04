@@ -2,7 +2,7 @@
     "todo": {
         "prefix": "todo",
         "body": [
-            "-- TODO: ${1|one,two|}${2}"
+            "-- Todo: ${1:comment}"
         ],
         "description": "TODO comment",
         "scope": "lua"
