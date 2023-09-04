@@ -7,4 +7,6 @@
 /init_nvim/IsFirst
 /node_modules/*
 /package.json
+/unused/*
+/unused/README.md
 lazy-lock.json

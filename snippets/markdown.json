@@ -1,0 +1,10 @@
+{
+    "todo": {
+        "prefix": [ "todo" ],
+        "body": [
+            "> todo: ${1|fix,update,add,remove,refactor,improve,change|} ${2:discription}"
+        ],
+        "discription": "todo",
+        "scope": "markdown"
+    }
+}
