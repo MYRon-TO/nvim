@@ -1,20 +1,20 @@
 snippet todo "Add todo"
-> ##!## todo : $0
+# todo : $0
 endsnippet
 
-snippet b "bold" i
+snippet b "bold" wi
 **${1:${VISUAL}}**$2
 endsnippet
 
-snippet i "italic" i
+snippet i "italic" wi
 *${1:${VISUAL}}*$2
 endsnippet
 
-snippet h "highlight" i
+snippet h "highlight" wi
 <mark>${1:${VISUAL}}</mark>$2
 endsnippet
 
-snippet m "math-inline" i
+snippet m "math-inline" wi
 $${1:${VISUAL}}$$2
 endsnippet
 
@@ -25,7 +25,7 @@ $$$
 $2
 endsnippet
 
-snippet c "code-inline" i
+snippet c "code-inline" wi
 \`${1:${VISUAL}}\`$2
 endsnippet
 
@@ -36,11 +36,11 @@ ${2:${VISUAL}}
 $3
 endsnippet
 
-snippet s "strickout" i
+snippet s "strickout" wi
 ~~${1:${VISUAL}}~~$2
 endsnippet
 
-snippet q "quote" i
+snippet q "quote" wi
 > ${VISUAL}
 endsnippet
 
@@ -68,14 +68,14 @@ snippet 6 "h6" b
 ###### $0
 endsnippet
 
-snippet l "link" i
+snippet l "link" wi
 [${1:${VISUAL}}](${2:url})$3
 endsnippet
 
-snippet p "picture" i
+snippet p "picture" wi
 ![${1:${VISUAL}}](${2:url})$3
 endsnippet
 
-snippet tab "tab" i
+snippet tab "tab" wi
 &emsp;
 endsnippet

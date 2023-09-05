@@ -17,7 +17,7 @@ local M = {
         "williamboman/mason.nvim",
         build = ":MasonUpdate", -- :MasonUpdate updates registry contents
         lazy = false,
-        event = "BufReadPre",
+        event = "VeryLazy",
         cmd = "Mason",
         depancies = {
             "williamboman/mason-lspconfig.nvim",
