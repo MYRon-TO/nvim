@@ -56,10 +56,10 @@ function M.config()
     require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/snippets" } })
     -- require("../snippets").setup_snippets()
 
-    local check_backspace = function()
-        local col = vim.fn.col "." - 1
-        return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
-    end
+    -- local check_backspace = function()
+    --     local col = vim.fn.col "." - 1
+    --     return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+    -- end
     local symbol_map = {
         Text = '  ',
         Variable = '  ',
@@ -105,13 +105,11 @@ function M.config()
             ["<C-e>"] = cmp.mapping.close(),
             ["<CR>"] = cmp.mapping.confirm {
                 behavior = cmp.ConfirmBehavior.Replace,
-                select = true,
+                select = false,
             },
             ["<C-j>"] = cmp.mapping(function(fallback)
                     if luasnip.expand_or_jumpable() then
                         luasnip.expand_or_jump()
-                    elseif check_backspace() then
-                        fallback()
                     else
                         fallback()
                     end
