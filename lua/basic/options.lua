@@ -10,6 +10,8 @@ opt.conceallevel   = 0             -- so that `` is visible in markdown files
 
 opt.mouse          = "a"           -- enable mouse support
 opt.fileencoding   = "utf-8"       -- the encoding written to a file
+
+
 opt.clipboard      = "unnamedplus" -- use system clipboard
 opt.cursorline     = true
 opt.number         = true

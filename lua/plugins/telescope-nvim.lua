@@ -9,11 +9,12 @@ return {
         { '<leader>fb', ':Telescope buffers<cr>' },
         { '<leader>fh', ':Telescope help_tags<cr>' },
     },
+
     config = function()
         require('telescope').setup {
             defaults = {
                 -- Default configuration for telescope goes here:
-                vimgrep_arguments = vimgrep_arguments,
+                -- vimgrep_arguments = vimgrep_arguments,
                 -- config_key = value,
                 -- borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
                 mappings = {
@@ -24,8 +25,11 @@ return {
                         -- ["<C-h>"] = "which_key"
                         ["<C-j>"] = "move_selection_next",
                         ["<C-k>"] = "move_selection_previous",
-                        ["<C-h>"] = "preview_scrolling_up",
-                        ["<C-l>"] = "preview_scrolling_down",
+                        ["<C-f>"] = "preview_scrolling_up",
+                        ["<C-b>"] = "preview_scrolling_down",
+                    },
+                    n = {
+                        -- ["<CR>"] = "confirm",
                     }
                 },
             },

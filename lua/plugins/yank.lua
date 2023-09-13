@@ -1,7 +1,9 @@
 return {
     {
         "gbprod/yanky.nvim",
-        dependencies = { "kkharji/sqlite.lua" },
+        dependencies = {
+            "kkharji/sqlite.lua",
+        },
         lazy = true,
         config = function()
             require("yanky").setup({
@@ -46,3 +48,4 @@ return {
         }
     },
 }
+
