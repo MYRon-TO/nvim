@@ -6,7 +6,8 @@ return {
     },
     config = function ()
         vim.g.custom_antovim_definitions = {
-            {'yes', 'no'}
+            {'yes', 'no'},
+            {'.', '。'},
         }
     end,
 }

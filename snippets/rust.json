@@ -2,7 +2,9 @@
     "todo": {
         "prefix": [ "todo" ],
         "body": [
-            "// todo: ${1:todo}$2"
+            "// 在写了，在写了",
+            "// TODO:$1",
+            "todo!();$2"
         ],
         "discription": "todo",
         "scope": "rust"
