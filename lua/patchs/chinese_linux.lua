@@ -17,7 +17,7 @@ end
 
 local function isDoc()
     local ft = vim.bo.filetype
-    return string.find(ft, "markdown") or string.find(ft, "txt")
+    return string.find(ft, "markdown") or string.find(ft, "txt") or string.find(ft, "tex")
 end
 
 local function isInComment()
