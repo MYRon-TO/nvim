@@ -33,7 +33,8 @@ return {
                     end,
                     lua = function()
                         return "time lua $fileName"
-                    end
+                    end,
+                    dart = "time dart"
                 },
                 project = {
 

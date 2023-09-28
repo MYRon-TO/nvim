@@ -9,7 +9,7 @@ local servers = {
     "bashls",        -- Bash
     -- "golangci_lint_ls", -- Go
     "omnisharp",     -- C#
-    "rome",          -- Web(JS/TS, HTML, CSS)
+    "biome",          -- Web(JS/TS, HTML, CSS)
 }
 
 local M = {
