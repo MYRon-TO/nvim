@@ -4,7 +4,7 @@ return {
     keys = {
         -- { 'aa' },
         -- { 'as' },
-        { 'aw' },
+        { 'aw' , mode = 'x'},
         -- { 'ar' },
         -- { 'gaw' },
         -- { 'gaa' },
