@@ -5,11 +5,11 @@ local servers = {
     "jdtls",         -- Java
     "pyright",       -- Python
     "marksman",      -- Markdown
-    "jsonls",        -- JSON
     "bashls",        -- Bash
     -- "golangci_lint_ls", -- Go
     "omnisharp",     -- C#
-    "biome",          -- Web(JS/TS, HTML, CSS)
+    "biome",         -- JS/TS JSON
+    "html-lsp",      -- HTML
 }
 
 local M = {
