@@ -9,7 +9,8 @@ local servers = {
     -- "golangci_lint_ls", -- Go
     "omnisharp",     -- C#
     "biome",         -- JS/TS JSON
-    "html-lsp",      -- HTML
+    "html",          -- HTML
+    "cssls"          -- CSS
 }
 
 local M = {
