@@ -26,7 +26,7 @@ return {
                 "javascript",
                 "json",
                 -- "php",
-                -- "dart",
+                "dart",
                 "python",
                 "rust",
                 "regex",
