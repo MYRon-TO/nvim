@@ -1,0 +1,10 @@
+{
+    "todo": {
+        "prefix": "todo",
+        "body": [
+            "-- todo: ${1|one, two|}"
+        ],
+        "description": "TODO comment",
+        "scope": "lua"
+    }
+}

@@ -4,5 +4,11 @@
         "description":"A simple grep-like tool written in Rust",
         "filename":"src/main.rs",
         "command":"time IGNORE_CASE=1 cargo run to poem.txt"
+    },
+    "~/Code/how_many_rs":{
+        "name":"how_many_rs",
+        "description":"How many Rust files are in this directory?",
+        "filename":"src/main.rs",
+        "command":"time cargo run"
     }
 }
