@@ -6,6 +6,7 @@ local M = {
         { "hrsh7th/cmp-buffer", },
         { "hrsh7th/cmp-path", },
         { "hrsh7th/cmp-cmdline", },
+        { "hrsh7th/cmp-calc", },
 
         { "kdheepak/cmp-latex-symbols", },
 
@@ -47,63 +48,63 @@ local M = {
     },
 }
 
-local setCompHL = function()
-    local fgdark = "#2E3440"
+-- local setCompHL = function()
+--     local fgdark = "#2E3440"
 
-    vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#82AAFF", bg = "NONE", bold = true })
-    vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#82AAFF", bg = "NONE", bold = true })
-    vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = "#7E8294", bg = "NONE", strikethrough = true })
+--     vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#82AAFF", bg = "NONE", bold = true })
+--     vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#82AAFF", bg = "NONE", bold = true })
+--     vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = "#7E8294", bg = "NONE", strikethrough = true })
 
-    vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#808080", bg = "NONE", italic = true })
-    vim.api.nvim_set_hl(0, "CmpItemKindField", { fg = fgdark, bg = "#B5585F" })
-    vim.api.nvim_set_hl(0, "CmpItemKindProperty", { fg = fgdark, bg = "#B5585F" })
-    vim.api.nvim_set_hl(0, "CmpItemKindEvent", { fg = fgdark, bg = "#B5585F" })
+--     vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#808080", bg = "NONE", italic = true })
+--     vim.api.nvim_set_hl(0, "CmpItemKindField", { fg = fgdark, bg = "#B5585F" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindProperty", { fg = fgdark, bg = "#B5585F" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindEvent", { fg = fgdark, bg = "#B5585F" })
 
-    vim.api.nvim_set_hl(0, "CmpItemKindText", { fg = fgdark, bg = "#9FBD73" })
-    vim.api.nvim_set_hl(0, "CmpItemKindEnum", { fg = fgdark, bg = "#9FBD73" })
-    vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { fg = fgdark, bg = "#9FBD73" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindText", { fg = fgdark, bg = "#9FBD73" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindEnum", { fg = fgdark, bg = "#9FBD73" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { fg = fgdark, bg = "#9FBD73" })
 
-    vim.api.nvim_set_hl(0, "CmpItemKindConstant", { fg = fgdark, bg = "#D4BB6C" })
-    vim.api.nvim_set_hl(0, "CmpItemKindConstructor", { fg = fgdark, bg = "#D4BB6C" })
-    vim.api.nvim_set_hl(0, "CmpItemKindReference", { fg = fgdark, bg = "#D4BB6C" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindConstant", { fg = fgdark, bg = "#D4BB6C" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindConstructor", { fg = fgdark, bg = "#D4BB6C" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindReference", { fg = fgdark, bg = "#D4BB6C" })
 
-    vim.api.nvim_set_hl(0, "CmpItemKindFunction", { fg = fgdark, bg = "#A377BF" })
-    vim.api.nvim_set_hl(0, "CmpItemKindStruct", { fg = fgdark, bg = "#A377BF" })
-    vim.api.nvim_set_hl(0, "CmpItemKindClass", { fg = fgdark, bg = "#A377BF" })
-    vim.api.nvim_set_hl(0, "CmpItemKindModule", { fg = fgdark, bg = "#A377BF" })
-    vim.api.nvim_set_hl(0, "CmpItemKindOperator", { fg = fgdark, bg = "#A377BF" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindFunction", { fg = fgdark, bg = "#A377BF" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindStruct", { fg = fgdark, bg = "#A377BF" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindClass", { fg = fgdark, bg = "#A377BF" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindModule", { fg = fgdark, bg = "#A377BF" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindOperator", { fg = fgdark, bg = "#A377BF" })
 
-    vim.api.nvim_set_hl(0, "CmpItemKindVariable", { fg = fgdark, bg = "#7E8294" })
-    vim.api.nvim_set_hl(0, "CmpItemKindFile", { fg = fgdark, bg = "#7E8294" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindVariable", { fg = fgdark, bg = "#7E8294" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindFile", { fg = fgdark, bg = "#7E8294" })
 
-    vim.api.nvim_set_hl(0, "CmpItemKindUnit", { fg = fgdark, bg = "#D4A959" })
-    vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { fg = fgdark, bg = "#D4A959" })
-    vim.api.nvim_set_hl(0, "CmpItemKindFolder", { fg = fgdark, bg = "#D4A959" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindUnit", { fg = fgdark, bg = "#D4A959" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { fg = fgdark, bg = "#D4A959" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindFolder", { fg = fgdark, bg = "#D4A959" })
 
-    vim.api.nvim_set_hl(0, "CmpItemKindMethod", { fg = fgdark, bg = "#6C8ED4" })
-    vim.api.nvim_set_hl(0, "CmpItemKindValue", { fg = fgdark, bg = "#6C8ED4" })
-    vim.api.nvim_set_hl(0, "CmpItemKindEnumMember", { fg = fgdark, bg = "#6C8ED4" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindMethod", { fg = fgdark, bg = "#6C8ED4" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindValue", { fg = fgdark, bg = "#6C8ED4" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindEnumMember", { fg = fgdark, bg = "#6C8ED4" })
 
-    vim.api.nvim_set_hl(0, "CmpItemKindInterface", { fg = fgdark, bg = "#58B5A8" })
-    vim.api.nvim_set_hl(0, "CmpItemKindColor", { fg = fgdark, bg = "#58B5A8" })
-    vim.api.nvim_set_hl(0, "CmpItemKindTypeParameter", { fg = fgdark, bg = "#58B5A8" })
-end
+--     vim.api.nvim_set_hl(0, "CmpItemKindInterface", { fg = fgdark, bg = "#58B5A8" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindColor", { fg = fgdark, bg = "#58B5A8" })
+--     vim.api.nvim_set_hl(0, "CmpItemKindTypeParameter", { fg = fgdark, bg = "#58B5A8" })
+-- end
 
 local has_words_before = function()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
-local limitStr = function(str)
-    if #str > 25 then
-        str = string.sub(str, 1, 22) .. "..."
-    end
-    return str
-end
+-- local limitStr = function(str)
+--     if #str > 25 then
+--         str = string.sub(str, 1, 22) .. "..."
+--     end
+--     return str
+-- end
 
 function M.config()
     local cmp = require "cmp"
     local lspkind = require("lspkind")
-    setCompHL()
+    -- setCompHL()
     require("cmp_nvim_ultisnips").setup {
         filetype_source = "treesitter",
         show_snippets = "all",
@@ -115,34 +116,35 @@ function M.config()
     vim.g.UltiSnipsRemoveSelectModeMappings = 1
 
     local symbol_map = {
-        -- Text = '  ',
-        -- Variable = '  ',
-        -- Class = '  ',
-        -- Interface = '  ',
-        -- Module = '  ',
-        -- Property = '  ',
-        -- Unit = '  ',
-        -- Keyword = '  ',
-        -- Snippet = '󱪇  ',
-        -- Color = '  ',
-        -- File = '  ',
-        -- Reference = '  ',
-        -- Folder = '  ',
-        -- EnumMember = '  ',
-        -- Constant = '  ',
-        -- Struct = '  ',
-        -- Event = '  ',
-        -- Operator = '  ',
-        -- TypeParameter = '  ',
-        -- Method = "m",
-        -- Function = "󰊕",
-        -- Constructor = "",
-        -- Field = "",
-        -- Value = "󰎠",
-        -- Enum = "",
-        -- Codeium = "󰚩",
-        -- Copilot = "",
+        Text = '  ',
+        Variable = '  ',
+        Class = '  ',
+        Interface = '  ',
+        Module = '  ',
+        Property = '  ',
+        Unit = '  ',
+        Keyword = '  ',
+        Snippet = '󱪇  ',
+        Color = '  ',
+        File = '  ',
+        Reference = '  ',
+        Folder = '  ',
+        EnumMember = '  ',
+        Constant = '  ',
+        Struct = '  ',
+        Event = '  ',
+        Operator = '  ',
+        TypeParameter = '  ',
+        Method = "m",
+        Function = "󰊕",
+        Constructor = "",
+        Field = "",
+        Value = "󰎠",
+        Enum = "",
+        Codeium = "󰚩",
+        Copilot = "",
     }
+
 
 
     cmp.setup {
@@ -199,20 +201,36 @@ function M.config()
             ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
         },
         formatting = {
-            fields = { "kind", "abbr", "menu" },
-            maxwidth = 80,
-            maxheight = 10,
-            format = function(entry, vim_item)
-                local kind = lspkind.cmp_format({
-                    mode = "symbol_text",
-                    symbol_map = symbol_map,
-                })(entry, vim_item)
-                local strings = vim.split(kind.kind, "%s", { trimempty = true })
-                kind.kind = " " .. (strings[1] or "") .. " "
-                kind.menu = limitStr(entry:get_completion_item().detail or "")
+            -- fields = { "kind", "abbr", "menu" },
+            -- maxwidth = 80,
+            -- maxheight = 10,
+            -- format = function(entry, vim_item)
+            --     local kind = lspkind.cmp_format({
+            --         mode = "symbol_text",
+            --         symbol_map = symbol_map,
+            --     })(entry, vim_item)
+            --     local strings = vim.split(kind.kind, "%s", { trimempty = true })
+            --     kind.kind = " " .. (strings[1] or "") .. " "
+            --     kind.menu = limitStr(entry:get_completion_item().detail or "")
 
-                return kind
-            end,
+            --     return kind
+            -- end,
+            format = require('lspkind').cmp_format({
+                mode = 'symbol_text',      -- show only symbol annotations
+                maxwidth = 100,             -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+                ellipsis_char = '...',     -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+
+                -- The function below will be called before any actual modifications from lspkind
+                -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+                -- before = function(entry, vim_item)
+                --      vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
+                --     return vim_item
+                -- end
+                before = function(_, vim_item)
+                    vim_item.kind = (symbol_map[vim_item.kind] or '') .. '[' .. vim_item.kind .. ']'
+                    return vim_item
+                end
+            })
         },
         sources = {
             { name = "nvim_lsp" },
@@ -234,11 +252,12 @@ function M.config()
             select = false,
         },
         window = {
-            completion = {
-                -- winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
-                col_offset = -3,
-                side_padding = 0,
-            },
+            -- completion = {
+            --     -- winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+            --     col_offset = -3,
+            --     side_padding = 0,
+            -- },
+            completion = cmp.config.window.bordered(),
             documentation = cmp.config.window.bordered(),
         },
         experimental = {
