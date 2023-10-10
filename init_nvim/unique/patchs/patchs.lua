@@ -2,4 +2,4 @@
 
 -- Here's patchs
 -- require("patchs/terminal")
--- require("patchs/chinese_mac")
+-- require("patchs/chinese")

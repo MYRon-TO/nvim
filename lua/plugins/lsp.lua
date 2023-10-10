@@ -6,7 +6,7 @@ local servers = {
     "pyright",       -- Python
     "marksman",      -- Markdown
     "bashls",        -- Bash
-    -- "golangci_lint_ls", -- Go
+    "gopls",         -- Go
     "omnisharp",     -- C#
     "biome",         -- JS/TS JSON
     "html",          -- HTML

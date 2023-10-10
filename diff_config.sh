@@ -60,12 +60,49 @@ function Choose_a_ColorScheme() {
 function Init_Indent() {
     if test ! -e ~/.config/nvim/lua/plugins/indent.lua
     then
-        cp ./init_nvim/unique/indent.lua ~/.config/nvim/lua/plugins/indent.lua
+        # init_patchs:  <10-10-23, yourname> #
         echo "Indent.lua copied"
     else
         while true
         do
-            echo "Indent.lua found"
+            echo "patchs.lua found"
+            echo "Do you want to reinstall it?"
+            read -p "Y/N Default: [N]" YorN
+            if [ ! $YorN ]
+            then
+                YorN=N
+            fi
+            if [ $YorN = "Y" -o $YorN = "y" ]
+            then
+                rm -f ~/.config/nvim/lua/patchs/*
+                # init_patchs:  <10-10-23, yourname> #
+                echo "Indent.lua copied"
+                break
+            elif [ $YorN = "N" -o $YorN = "n" ]
+            then
+                echo "Skip"
+                break
+            else
+                echo "Wrong input"
+                continue
+            fi
+        done
+    fi
+    unset YorN
+}
+
+# --------------------
+# Patchs
+# --------------------
+function Patchs() {
+    if test ! -e ~/.config/nvim/lua/plugins/patchs.lua
+    then
+        source ./init_nvim/script/Patchs.sh
+        echo "Patchs.lua copied"
+    else
+        while true
+        do
+            echo "Patchs.lua found"
             echo "Do you want to change it?"
             read -p "Y/N Default: [N]" YorN
             if [ ! $YorN ]
@@ -74,9 +111,8 @@ function Init_Indent() {
             fi
             if [ $YorN = "Y" -o $YorN = "y" ]
             then
-                rm -f ~/.config/nvim/lua/plugins/indent.lua
-                cp ./init_nvim/unique/indent.lua ~/.config/nvim/lua/plugins/indent.lua
-                echo "Indent.lua copied"
+                source ./init_nvim/script/Patchs.sh
+                echo "Patchs.lua copied"
                 break
             elif [ $YorN = "N" -o $YorN = "n" ]
             then
@@ -127,5 +163,4 @@ then
 else
     echo "This is the first time to use this script"
     Choose_a_ColorScheme
-    Init_Indent
 fi
