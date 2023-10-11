@@ -1,6 +1,6 @@
 return {
-    settings = {
-        [shell] = {
-        },
-    },
+    -- settings = {
+    --     [shell] = {
+    --     },
+    -- },
 }

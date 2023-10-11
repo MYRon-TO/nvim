@@ -1,39 +1,37 @@
 return {
     'nvim-telescope/telescope.nvim',
     -- tag = '0.1.3',
-    dependencies = {
-        'nvim-lua/plenary.nvim'
-    },
+    dependencies = { 'nvim-lua/plenary.nvim' },
     lazy = true,
     keys = {
-        { '<leader>ff' },
-        { '<leader>fg' },
-        { '<leader>fb' },
-        { '<leader>fh' },
+        { '<leader>ff', ':Telescope find_files<cr>' },
+        { '<leader>fg', ':Telescope live_grep<cr>' },
+        { '<leader>fb', ':Telescope buffers<cr>' },
+        { '<leader>fh', ':Telescope help_tags<cr>' },
     },
 
     config = function()
-        local builtin = require('telescope.builtin')
-        vim.keymap.set('n', '<leader>ff', builtin.git_files, {})
-        vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-        vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-        vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-
         require('telescope').setup {
             defaults = {
                 -- Default configuration for telescope goes here:
+                -- vimgrep_arguments = vimgrep_arguments,
                 -- config_key = value,
+                -- borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
                 mappings = {
                     i = {
                         -- map actions.which_key to <C-h> (default: <C-/>)
                         -- actions.which_key shows the mappings for your picker,
                         -- e.g. git_{create, delete, ...}_branch for the git_branches picker
-                        ["<c-j>"] = require('telescope.actions').move_selection_next,
-                        ["<c-k>"] = require('telescope.actions').move_selection_previous,
-                        ["<esc>"] = require('telescope.actions').close,
-                        ["<cr>"] = require('telescope.actions').select_default + require('telescope.actions').center,
+                        -- ["<C-h>"] = "which_key"
+                        ["<C-j>"] = "move_selection_next",
+                        ["<C-k>"] = "move_selection_previous",
+                        ["<C-f>"] = "preview_scrolling_up",
+                        ["<C-b>"] = "preview_scrolling_down",
+                    },
+                    n = {
+                        -- ["<CR>"] = "confirm",
                     }
-                }
+                },
             },
             pickers = {
                 -- Default configuration for builtin pickers goes here:
@@ -56,5 +54,5 @@ return {
                 -- please take a look at the readme of the extension you want to configure
             }
         }
-    end
+    end,
 }
