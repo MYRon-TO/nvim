@@ -1,4 +1,21 @@
-local pattern = { "*" }
+local pattern = {
+    "*.h",
+    "*.c",
+    "*.cpp",
+    "*.py",
+    "*.go",
+    "*.java",
+    "*.js",
+    "*.ts",
+    "*.rs",
+    "*.lua",
+
+    "*.md",
+    "*.txt",
+    "*.tex",
+
+    "*.sh",
+}
 -- smart english 2 chinese
 -- 检测上次输入状态
 -- 0 is english
