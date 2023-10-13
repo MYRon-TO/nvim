@@ -34,7 +34,8 @@ return {
                     lua = function()
                         return "time lua $fileName"
                     end,
-                    dart = "time dart"
+                    dart = "time dart",
+                    html = "time firefox $fileName",
                 },
                 project = {
 

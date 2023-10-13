@@ -103,7 +103,7 @@ end
 
 function M.config()
     local cmp = require "cmp"
-    local lspkind = require("lspkind")
+    -- local lspkind = require("lspkind")
     -- setCompHL()
     require("cmp_nvim_ultisnips").setup {
         filetype_source = "treesitter",
@@ -144,8 +144,6 @@ function M.config()
         Codeium = "󰚩",
         Copilot = "",
     }
-
-
 
     cmp.setup {
         snippet = {
@@ -261,7 +259,7 @@ function M.config()
             documentation = cmp.config.window.bordered(),
         },
         experimental = {
-            ghost_text = true,
+            ghost_text = false,
         },
         view = {
             entries = "custom",
