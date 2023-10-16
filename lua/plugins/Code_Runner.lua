@@ -38,6 +38,9 @@ return {
                     html = function ()
                         vim.cmd(":LiveServer")
                     end,
+                    markdown = function ()
+                        vim.cmd(":MarkdownPreview")
+                    end,
                 },
                 project = {
 
