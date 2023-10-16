@@ -35,7 +35,9 @@ return {
                         return "time lua $fileName"
                     end,
                     dart = "time dart",
-                    html = "time firefox $fileName",
+                    html = function ()
+                        vim.cmd(":LiveServer")
+                    end,
                 },
                 project = {
 
