@@ -2,4 +2,5 @@
 
 ## Patchs
 - chinese: change the input method auto
-- terminal
+- terminal: snips for terminal
+- quickMD: quick keymap markdown
