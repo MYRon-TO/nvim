@@ -41,6 +41,9 @@ return {
                     markdown = function ()
                         vim.cmd(":MarkdownPreview")
                     end,
+                    tex = function ()
+                        return "xelatex $fileName"
+                    end,
                 },
                 project = {
 

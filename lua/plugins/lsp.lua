@@ -12,6 +12,7 @@ local servers = {
     "html",          -- HTML
     "cssls",          -- CSS
     "psalm",         -- PHP
+    "texlab",        -- LaTeX
 }
 
 local M = {
