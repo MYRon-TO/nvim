@@ -1,7 +1,7 @@
 local leaderkey = "<c-j>"
 local MdSnippets = {
     { from = leaderkey .. leaderkey, to = "<Esc>/<++><CR>:nohlsearch<CR>\"_c4l" },
-    { from = leaderkey .. "n",       to = "---<Enter><Enter>" },
+    { from = leaderkey .. "l",       to = "---<Enter><Enter>" },
     { from = leaderkey .. "b",       to = "**** <++><Esc>F*hi" },
     { from = leaderkey .. "s",       to = "~~~~ <++><Esc>F~hi" },
     { from = leaderkey .. "i",       to = "** <++><Esc>F*i" },
@@ -17,6 +17,7 @@ local MdSnippets = {
     { from = leaderkey .. "3",       to = "###<Space><Enter><++><Esc>kA" },
     { from = leaderkey .. "4",       to = "####<Space><Enter><++><Esc>kA" },
     { from = leaderkey .. "5",       to = "#####<Space><Enter><++><Esc>kA" },
+    { from = leaderkey .. "6",       to = "######<Space><Enter><++><Esc>kA" },
     --中文
     -- { from = "《",           to = "《》<++><esc>F》i"                                  },
     -- { from = "》",           to = "> "                                                 },
