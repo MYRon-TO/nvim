@@ -1,4 +1,5 @@
 local Color = "#cba6f7"
+local ErrorColor = "#ff5555"
 return {
     {
         "shellRaining/hlchunk.nvim",
@@ -18,6 +19,7 @@ return {
                     },
                     style = {
                         { fg = Color },
+                        { fg = ErrorColor },
                     },
                 },
 
