@@ -29,11 +29,11 @@ return {
       dir = "~/Documents/Obsidian_Vault",  -- no need to call 'vim.fn.expand' here
 
     -- Optional, if you keep notes in a specific subdirectory of your vault.
-    notes_subdir = "./🂡_Knowledge_Lake/",
+    notes_subdir = "./Knowledge_Lake/",
 
      daily_notes = {
        -- Optional, if you keep daily notes in a separate directory.
-       folder = "./🀐_Record/🀣_daily",
+       folder = "./Record/daily",
        -- Optional, if you want to change the date format for daily notes.
        date_format = "%Y-%m-%d"
      },

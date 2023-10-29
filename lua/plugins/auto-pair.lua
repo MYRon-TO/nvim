@@ -34,6 +34,7 @@ return {
                 lua = {'string'},-- it will not add pair on that treesitter node
                 javascript = {'template_string'},
                 java = false,-- don't check treesitter on java
+                dart = false
             },
 
             -- change default fast_wrap
