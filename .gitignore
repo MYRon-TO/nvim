@@ -14,3 +14,4 @@ lazy-lock.json
 /project_manager.json
 /live-server
 project_manager.json
+lua/plugins/lualine.lua
