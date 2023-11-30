@@ -20,6 +20,7 @@ return {
       lua = { "stylua" },
       python = { "isort", "black" },  -- isort first, then black
       javascript = { { "prettierd", "prettier" } }, -- prettierd or prettier
+      latex = { "latexindent" },
     },
     -- Set up format-on-save
     -- format_on_save = { timeout_ms = 500, lsp_fallback = true },
