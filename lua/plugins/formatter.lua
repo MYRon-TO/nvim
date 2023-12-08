@@ -18,9 +18,13 @@ return {
     -- Define your formatters
     formatters_by_ft = {
       lua = { "stylua" },
-      python = { "isort", "black" },  -- isort first, then black
+      python = { "isort", "black" },                -- isort first, then black
       javascript = { { "prettierd", "prettier" } }, -- prettierd or prettier
+      html = { "prettier" },
+      css = { "prettier" },
+      scss = { "prettier" },
       latex = { "latexindent" },
+      tex = { "latexindent" },
     },
     -- Set up format-on-save
     -- format_on_save = { timeout_ms = 500, lsp_fallback = true },

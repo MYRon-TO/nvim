@@ -13,6 +13,7 @@ local servers = {
   "cssls",         -- CSS
   "psalm",         -- PHP
   "texlab",        -- LaTeX
+  "dockerls",        -- DockerFILE
 }
 
 local packages = {
@@ -20,6 +21,7 @@ local packages = {
   "isort",  -- Python
   "black",  -- Python
   "latexindent",
+  "prettier",
 }
 
 local M = {

@@ -14,4 +14,8 @@ return {
             { "<leader>a", ":CodeActionMenu<CR>", "n" },
         },
     },
+    -- {
+    --   "wakatime/vim-wakatime",
+    --   event = "VeryLazy",
+    -- }
 }
