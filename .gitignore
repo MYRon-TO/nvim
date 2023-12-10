@@ -15,3 +15,4 @@ lazy-lock.json
 /live-server
 project_manager.json
 lua/plugins/lualine.lua
+lua/plugins/scorllbar.lua
