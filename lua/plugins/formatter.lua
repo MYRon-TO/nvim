@@ -20,9 +20,9 @@ return {
       lua = { "stylua" },
       python = { "isort", "black" },                -- isort first, then black
       javascript = { { "prettierd", "prettier" } }, -- prettierd or prettier
-      html = { "prettier" },
-      css = { "prettier" },
-      scss = { "prettier" },
+      html = { "prettierd" },
+      css = { "prettierd" },
+      scss = { "prettierd" },
       latex = { "latexindent" },
       tex = { "latexindent" },
     },

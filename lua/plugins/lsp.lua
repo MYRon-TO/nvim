@@ -14,6 +14,7 @@ local servers = {
   "psalm",         -- PHP
   "texlab",        -- LaTeX
   "dockerls",        -- DockerFILE
+  "cmake",         -- CMake
 }
 
 local packages = {
@@ -21,7 +22,7 @@ local packages = {
   "isort",  -- Python
   "black",  -- Python
   "latexindent",
-  "prettier",
+  "prettierd",
 }
 
 local M = {
