@@ -91,7 +91,8 @@ function M.config()
     Copilot = "",
   }
 
-  require("luasnip/loaders/from_vscode").lazy_load()  -- load the friendly-snippets
+  -- require("luasnip/loaders/from_vscode").lazy_load()  -- load the friendly-snippets
+  require("luasnip/loaders/from_vscode").lazy_load({paths = {"~/.config/nvim/vs_snip/"}})  -- load the friendly-snippets
 
   local has_words_before = function()
     unpack = unpack or table.unpack
@@ -142,7 +143,9 @@ function M.config()
       }),
 
       ["<Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
+        if luasnip.choice_active() then
+          luasnip.change_choice(1)
+        elseif cmp.visible() then
           cmp.select_next_item()
         elseif luasnip.expandable() then
           luasnip.expand()
@@ -156,7 +159,9 @@ function M.config()
       }),
 
       ["<S-Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
+        if luasnip.choice_active() then
+          luasnip.change_choice(-1)
+        elseif cmp.visible() then
           cmp.select_prev_item()
         else
           fallback()

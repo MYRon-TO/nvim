@@ -26,41 +26,41 @@ return {
     -- "preservim/vim-markdown",
   },
   opts = {
-      dir = "~/Documents/Obsidian_Vault",  -- no need to call 'vim.fn.expand' here
+    dir = "~/Documents/Obsidian_Vault", -- no need to call 'vim.fn.expand' here
 
     -- Optional, if you keep notes in a specific subdirectory of your vault.
     notes_subdir = "./Knowledge_Lake/",
 
-     daily_notes = {
-       -- Optional, if you keep daily notes in a separate directory.
-       folder = "./Record/daily",
-       -- Optional, if you want to change the date format for daily notes.
-       date_format = "%Y-%m-%d"
-     },
+    daily_notes = {
+      -- Optional, if you keep daily notes in a separate directory.
+      folder = "./Record/daily",
+      -- Optional, if you want to change the date format for daily notes.
+      date_format = "%Y-%m-%d"
+    },
 
     -- Optional, completion.
     completion = {
-      nvim_cmp = true,  -- if using nvim-cmp, otherwise set to false
+      nvim_cmp = true, -- if using nvim-cmp, otherwise set to false
     },
 
     -- Optional, customize how names/IDs for new notes are created.
-     note_id_func = function(title)
-       -- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
-       -- In this case a note with the title 'My new note' will given an ID that looks
-       -- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
-       local suffix = ""
-       if title ~= nil then
-         -- If title is given, transform it into valid file name.
-          suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", "")
-       else
-         -- If title is nil, just add 4 random uppercase letters to the suffix.
-         for _ = 1, 4 do
-           suffix = suffix .. string.char(math.random(65, 90))
-         end
-       end
-       --return tostring(os.time()) .. "-" .. suffix
-       return suffix
-     end,
+    note_id_func = function(title)
+      -- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
+      -- In this case a note with the title 'My new note' will given an ID that looks
+      -- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
+      local suffix = ""
+      if title ~= nil then
+        -- If title is given, transform it into valid file name.
+        suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", "")
+      else
+        -- If title is nil, just add 4 random uppercase letters to the suffix.
+        for _ = 1, 4 do
+          suffix = suffix .. string.char(math.random(65, 90))
+        end
+      end
+      --return tostring(os.time()) .. "-" .. suffix
+      return suffix
+    end,
 
     -- Optional, set to true if you don't want Obsidian to manage frontmatter.
     disable_frontmatter = true,
@@ -90,7 +90,7 @@ return {
     -- URL it will be ignored but you can customize this behavior here.
     follow_url_func = function(url)
       -- Open the URL in the default web browser.
-      vim.fn.jobstart({"open", url})  -- Mac OS
+      vim.fn.jobstart({ "open", url }) -- Mac OS
       -- vim.fn.jobstart({"xdg-open", url})  -- linux
     end,
 
@@ -108,8 +108,45 @@ return {
     -- is not installed, or if it the command does not support it, the
     -- remaining finders will be attempted in the original order.
     finder = "telescope.nvim",
+
+    ui = {
+      enable = false,         -- set to false to disable all additional syntax features
+      update_debounce = 200, -- update delay after a text change (in milliseconds)
+      -- Define how various check-boxes are displayed
+      checkboxes = {
+        -- NOTE: the 'char' value has to be a single character, and the highlight groups are defined below.
+        [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
+        ["x"] = { char = "", hl_group = "ObsidianDone" },
+        [">"] = { char = "", hl_group = "ObsidianRightArrow" },
+        ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
+        -- Replace the above with this if you don't have a patched font:
+        -- [" "] = { char = "☐", hl_group = "ObsidianTodo" },
+        -- ["x"] = { char = "✔", hl_group = "ObsidianDone" },
+
+        -- You can also add more custom ones...
+      },
+      external_link_icon = { char = "", hl_group = "ObsidianExtLinkIcon" },
+      -- Replace the above with this if you don't have a patched font:
+      -- external_link_icon = { char = "", hl_group = "ObsidianExtLinkIcon" },
+      reference_text = { hl_group = "ObsidianRefText" },
+      highlight_text = { hl_group = "ObsidianHighlightText" },
+      tags = { hl_group = "ObsidianTag" },
+      hl_groups = {
+        -- The options are passed directly to `vim.api.nvim_set_hl()`. See `:help nvim_set_hl`.
+        ObsidianTodo = { bold = true, fg = "#f78c6c" },
+        ObsidianDone = { bold = true, fg = "#89ddff" },
+        ObsidianRightArrow = { bold = true, fg = "#f78c6c" },
+        ObsidianTilde = { bold = true, fg = "#ff5370" },
+        ObsidianRefText = { underline = true, fg = "#c792ea" },
+        ObsidianExtLinkIcon = { fg = "#c792ea" },
+        ObsidianTag = { italic = true, fg = "#89ddff" },
+        ObsidianHighlightText = { bg = "#75662e" },
+      },
+    },
+
   },
   config = function(_, opts)
+    -- vim.opt_local.conceallevel = 1
     require("obsidian").setup(opts)
 
     -- Optional, override the 'gf' keymap to utilize Obsidian's search functionality.
