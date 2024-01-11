@@ -2,17 +2,20 @@ return {
   {
     "gbprod/yanky.nvim",
     dependencies = {
-      "kkharji/sqlite.lua",
+      -- "kkharji/sqlite.lua",
+      'nvim-telescope/telescope.nvim',
     },
     lazy = true,
     config = function()
+      local mapping = require("yanky.telescope.mapping")
+      local utils = require("yanky.utils")
       require("yanky").setup({
         -- your configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
         ring = {
           history_length = 100,
-          storage = "sqlite",
+          storage = "shada",
           sync_with_numbered_registers = true,
           cancel_event = "update",
         },
@@ -22,7 +25,14 @@ return {
           },
           telescope = {
             use_default_mappings = false, -- if default mappings should be used
-            mappings = nil,              -- nil to use default mappings or no mappings (see `use_default_mappings`)
+            mappings = {
+              i = {
+                ["<cr>"] = mapping.put("p"),
+                ["<c-cr>"] = mapping.put("P"),
+                ["<c-x>"] = mapping.delete(),
+                ["<c-r>"] = mapping.set_register(utils.get_default_register()),
+              },
+            }
           },
         },
         system_clipboard = {
@@ -37,7 +47,7 @@ return {
           enabled = true,
         },
       })
-    require("telescope").load_extension("yank_history")
+      require("telescope").load_extension("yank_history")
     end,
     keys = {
       { "p",         "<Plug>(YankyPutAfter)",       mode = { "n", "x" } },

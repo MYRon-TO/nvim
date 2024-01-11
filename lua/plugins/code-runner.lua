@@ -42,7 +42,7 @@ return {
             vim.cmd(":MarkdownPreview")
           end,
           tex = function()
-            return "xelatex $fileName"
+            return "time xelatex $fileName"
           end,
           js = "time node $fileName",
           ts = {
