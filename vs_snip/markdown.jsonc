@@ -2,7 +2,7 @@
   "todo" : {
     "prefix" : "todo",
     "body" : [
-      "#todo: ${1:代办}"
+      "#todo: ${1:待办}"
     ],
     "description": "todo"
   }

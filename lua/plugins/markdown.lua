@@ -21,7 +21,7 @@ return {
         keys = {
             { '<leader>tm', ':TableModeToggle<cr>', 'n' },
         },
-        ft = { "markdown" },
+        ft = { "markdown","txt" },
     },
 
     -- install with yarn or npm
