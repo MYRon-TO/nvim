@@ -1,0 +1,33 @@
+{
+  "flashcard_oneside" : {
+    "prefix" : "flashcard",
+    "body": [
+      "",
+      "${1:正面} #flashcard",
+      "${2:背面}",
+      ""
+    ],
+    "description": "one side flashcard"
+  },
+
+  "flashcard_bothside" : {
+    "prefix" : "flashcardbs",
+    "body": [
+      "",
+      "${1:正面} #BSflashcard",
+      "${2:背面}",
+      ""
+    ],
+    "description": "both side flashcard"
+  },
+
+  "flashcard_bothside" : {
+    "prefix" : "cloze",
+    "body": [
+      "",
+      "#cloze{1:正面}",
+      ""
+    ],
+    "description": "cloze like {{1:answer}}"
+  }
+}

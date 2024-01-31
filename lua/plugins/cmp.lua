@@ -92,7 +92,7 @@ function M.config()
   }
 
   -- require("luasnip/loaders/from_vscode").lazy_load()  -- load the friendly-snippets
-  require("luasnip/loaders/from_vscode").lazy_load({paths = {"~/.config/nvim/vs_snip/"}})  -- load the friendly-snippets
+  require("luasnip/loaders/from_vscode").lazy_load({paths = require("snip_path") })  -- load the friendly-snippets
 
   local has_words_before = function()
     unpack = unpack or table.unpack
