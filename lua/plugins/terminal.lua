@@ -5,7 +5,7 @@ return {
   config = function()
     local map = vim.keymap.set
     map('t', '<c-Esc>', '<C-\\><C-n>', { noremap = true })
-    map('n', '<c-\\><c-j>',':ToggleTerm<CR>')
+    -- map('n', '<c-\\><c-j>',':ToggleTerm<CR>')
     map({'n','t'}, '<c-\\><c-\\>','<cmd>ToggleTerm direction=float<CR>')
 
     require('toggleterm').setup {
@@ -14,6 +14,6 @@ return {
   end,
   keys = {
     '<c-\\><c-\\>',
-    '<c-\\><c-j>',
+    -- '<c-\\><c-j>',
   }
 }

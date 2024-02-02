@@ -1,10 +1,40 @@
 {
+  "no-anki" : {
+    "prefix" : "noanki",
+    "body": [
+      "#no-anki ${1|not needed yet,not a word,#todo: |}"
+    ],
+    "description": "no anki-flashcard yet"
+  },
+
   "flashcard_oneside" : {
     "prefix" : "flashcard",
     "body": [
       "",
       "${1:正面} #flashcard",
       "${2:背面}",
+      ""
+    ],
+    "description": "one side flashcard"
+  },
+
+  "quick_add_word" : {
+    "prefix" : "af",
+    "body": [
+      "",
+      "${TM_FILENAME_BASE} #flashcard",
+      "${2:背面}",
+      ""
+    ],
+    "description": "one side flashcard"
+  },
+
+  "Q_A_flashcard" : {
+    "prefix" : "ac",
+    "body": [
+      "TARGET DECK: Q_A",
+      "${1:Question} #flashcard",
+      "${2:Answer}",
       ""
     ],
     "description": "one side flashcard"
@@ -25,7 +55,7 @@
     "prefix" : "cloze",
     "body": [
       "",
-      "#cloze{1:正面}",
+      "#cloze ${1:here is sample {{1:answer\\}\\}}",
       ""
     ],
     "description": "cloze like {{1:answer}}"
