@@ -13,3 +13,7 @@ figlet -f big "Super Big Title"
 tree -L 3
 ```
 
+### regex
+```shell
+:%s/old\(.*\)/new\1/g
+```

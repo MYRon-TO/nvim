@@ -1,4 +1,4 @@
-local leaderkey = "<c-j>"
+local leaderkey = "<c-g>"
 local MdSnippets = {
     { from = leaderkey .. leaderkey, to = "<Esc>/<++><CR>:nohlsearch<CR>\"_c4l" },
     { from = leaderkey .. "l",       to = "---<Enter><Enter>" },

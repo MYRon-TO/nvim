@@ -3,7 +3,10 @@ return {
   lazy = true,
   -- event = { "BufReadPre /Users/miaoyuanrong/Documents/Obsidian_Vault/**.md" },
   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
-  event = { "BufReadPre " .. vim.fn.expand "~" .. "/Documents/Obsidian_Vault/**.md" },
+  event = { 
+    "BufReadPre " .. vim.fn.expand "~" .. "/Documents/Obsidian_Vault/**.md",
+    "BufReadPre " .. vim.fn.expand "~" .. "/Documents/VocabularyBook/**.md",
+  },
   dependencies = {
     -- Required.
     "nvim-lua/plenary.nvim",
@@ -110,7 +113,7 @@ return {
     finder = "telescope.nvim",
 
     ui = {
-      enable = false,         -- set to false to disable all additional syntax features
+      enable = false,        -- set to false to disable all additional syntax features
       update_debounce = 200, -- update delay after a text change (in milliseconds)
       -- Define how various check-boxes are displayed
       checkboxes = {

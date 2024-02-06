@@ -28,6 +28,7 @@ opt.showtabline    = 2    -- always show tabs
 
 opt.smartindent    = true -- insert indents automatically
 
+opt.hidden         = true -- enable background buffers
 
 opt.termguicolors  = true -- true color support
 
@@ -71,3 +72,4 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 
 opt.syntax = 'on'
 -- vim.cmd([[highlight ]])
+

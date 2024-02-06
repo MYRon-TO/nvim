@@ -1,10 +1,14 @@
 {
-	"name": "example-snippets",
+	"name": "my_snippets",
 	"contributes": {
 		"snippets": [
 			{
         "language": ["markdown"],
-        "path": "./markdown.jsonc"
+        "path": "./markdown/markdown.jsonc"
+			},
+			{
+        "language": ["markdown"],
+        "path": "./markdown/anki.jsonc"
 			},
       {
 				"language": ["all"],
