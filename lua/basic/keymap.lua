@@ -63,3 +63,5 @@ map ('x', 'K', ":m '<-2<CR>gv=gv", opts)
 
 -- copy to clipboard
 map ('v', 'y', '"+y', opts)
+
+map ('i', '<c-space>', '<c-space>', opts_si)

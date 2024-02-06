@@ -19,7 +19,7 @@ return {
     formatters_by_ft = {
       lua = { "stylua" },
       python = { "isort", "black" },                -- isort first, then black
-      javascript = { { "prettierd", "prettier" } }, -- prettierd or prettier
+      javascript = { { "biome", "prettierd", "prettier" } }, -- prettierd or prettier
       html = { "prettierd" },
       css = { "prettierd" },
       scss = { "prettierd" },

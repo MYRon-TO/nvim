@@ -15,6 +15,7 @@ local servers = {
   "texlab",        -- LaTeX
   "dockerls",        -- DockerFILE
   "cmake",         -- CMake
+  "volar",
 }
 
 local packages = {
