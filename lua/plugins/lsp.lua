@@ -15,6 +15,7 @@ local servers = {
   "texlab",        -- LaTeX
   "dockerls",      -- DockerFILE
   "cmake",         -- CMake
+  "kotlin_language_server" -- Kotlin
   -- "volar",         -- Vue
 }
 

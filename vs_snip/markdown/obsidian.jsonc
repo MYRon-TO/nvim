@@ -1,0 +1,49 @@
+{
+  "patterns": {
+    "prefix": "patterns",
+    "body": [
+      "## patterns",
+      ""
+    ],
+    "description": "An Word's Patterns"
+  },
+
+  "init": {
+    "prefix": "init",
+    "body": [
+      "# ${TM_FILENAME_BASE}",
+      "## patterns",
+      ""
+    ],
+    "description": "An Word's Init"
+  },
+
+  "no object verb": {
+    "prefix": "vi",
+    "body": [
+      "**[NO OBJECT]** "
+    ],
+    "description": "No Object Verb"
+  },
+  "with object verb": {
+    "prefix": "vt",
+    "body": [
+      "**[WITH OBJECT]** "
+    ],
+    "description": "With Object Verb"
+  },
+  "countable noun": {
+    "prefix": "cn",
+    "body": [
+      "**[COUNTABLE]** "
+    ],
+    "description": "Countable Noun"
+  },
+  "uncountable noun": {
+    "prefix": "un",
+    "body": [
+      "**[UNCOUNTABLE]** "
+    ],
+    "description": "Uncountable Noun"
+  }
+}
