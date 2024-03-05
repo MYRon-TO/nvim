@@ -1,17 +1,27 @@
+vim.g.copilot_no_tab_map = true
+
 return {
   {
     "github/copilot.vim",
     event = "InsertEnter",
     config = function()
-      vim.g.copilot_enabled = true
-      -- vim.g.copilot_no_tab_map = true
-      -- vim.g.copilot_assume_mapped = true
-      vim.cmd([[
-                let g:copilot_no_tab_map = v:true
-                " let g:copilot_assume_mapped = v:true
-                imap <silent><script><expr> <C-Y> copilot#Accept("")
-                " imap <silent><script><expr> <C-B> <Plug>(copilot-suggest)
-            ]])
+      vim.g.copilot_no_tab_map = true
+      vim.keymap.set('i', '<C-Y>', 'copilot#Accept("\\<CR>")', {
+        expr = true,
+        replace_keycodes = true
+      })
+      vim.keymap.set('i', '<C-/>', '<Plug>(copilot-next)')
+      vim.keymap.set('i', '<C-\\>', '<Plug>(copilot-previous)')
+
+      -- vim.g.copilot_enabled = true
+      -- -- vim.g.copilot_no_tab_map = true
+      -- -- vim.g.copilot_assume_mapped = true
+      -- vim.cmd([[
+      --           let g:copilot_no_tab_map = v:true
+      --           " let g:copilot_assume_mapped = v:true
+      --           imap <silent><script><expr> <C-Y> copilot#Accept("")
+      --           " imap <silent><script><expr> <C-B> <Plug>(copilot-suggest)
+      --       ]])
       -- vim.api.nvim_set_keymap("i", "<C-Y>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
       vim.g.copilot_filetypes = {
         ["*"] = true,
