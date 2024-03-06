@@ -13,9 +13,10 @@ local servers = {
   "cssls",         -- CSS
   "psalm",         -- PHP
   "texlab",        -- LaTeX
-  "dockerls",        -- DockerFILE
+  "dockerls",      -- DockerFILE
   "cmake",         -- CMake
-  "volar",
+  "kotlin_language_server" -- Kotlin
+  -- "volar",         -- Vue
 }
 
 local packages = {

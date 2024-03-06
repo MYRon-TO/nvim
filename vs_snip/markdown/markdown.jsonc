@@ -5,5 +5,39 @@
       "#todo: ${1:待办}"
     ],
     "description": "todo"
+  },
+  "define" : {
+    "prefix" : "define",
+    "body" : [
+      "#defination ${1:定义}"
+    ],
+    "description": "TAG: defination"
+  },
+  "theorem" : {
+    "prefix" : "theorem",
+    "body" : [
+      "#theorem ${1:定理}"
+    ],
+    "description": "TAG: theorem"
+  },
+  "nutdo" : {
+    "prefix" : "nutdo",
+    "body" : [
+      "> #nut_do  ",
+      "> ${1:do what}",
+      ">",
+      "> ---",
+      "> <span style=\"color:red\">𝞦 not do</span>  ",
+      "> ${2:not do}",
+      ">",
+      "> ---",
+      "> ${3:why}",
+      ">",
+      "> ---",
+      "> <span style=\"color:green\">✓ do</span>  ",
+      "> ${4:do}",
+      ">"
+    ],
+    "description": "TAG: only nut do"
   }
 }
