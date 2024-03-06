@@ -5,7 +5,7 @@ return {
   keys = {
     {
       -- Customize or remove this keymap to your liking
-      "<leader>f",
+      "<leader>F",
       function()
         require("conform").format({ async = true, lsp_fallback = true })
       end,
@@ -18,13 +18,14 @@ return {
     -- Define your formatters
     formatters_by_ft = {
       lua = { "stylua" },
-      python = { "isort", "black" },                -- isort first, then black
+      python = { "isort", "black" },                         -- isort first, then black
       javascript = { { "biome", "prettierd", "prettier" } }, -- prettierd or prettier
-      html = { "prettierd" },
+      html = { { "biome", "prettierd" } },
       css = { "prettierd" },
       scss = { "prettierd" },
       latex = { "latexindent" },
       tex = { "latexindent" },
+      rust = { "rustfmt" },
     },
     -- Set up format-on-save
     -- format_on_save = { timeout_ms = 500, lsp_fallback = true },
