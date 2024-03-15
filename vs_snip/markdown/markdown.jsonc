@@ -31,6 +31,7 @@
       "> ${2:not do}",
       ">",
       "> ---",
+      "> <span style=\"color:yellow\">? why</span>  ",
       "> ${3:why}",
       ">",
       "> ---",
@@ -39,5 +40,12 @@
       ">"
     ],
     "description": "TAG: only nut do"
+  },
+  "book_page":{
+    "prefix" : "book",
+    "body" : [
+      "#book ${1:book_name}P${2:page}"
+    ],
+    "description": "TAG: Read the book at this page"
   }
 }

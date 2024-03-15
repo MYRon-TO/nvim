@@ -11,7 +11,7 @@ return {
               'settings.gradle.kts', -- Gradle
             },
             -- Multi-module projects
-            { 'build.gradle', 'build.gradle.kts' },
+            -- { 'build.gradle', 'build.gradle.kts' },
           } or vim.fn.getcwd(),
     }
   }

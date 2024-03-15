@@ -3,7 +3,7 @@ return {
   lazy = true,
   -- event = { "BufReadPre /Users/miaoyuanrong/Documents/Obsidian_Vault/**.md" },
   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
-  event = { 
+  event = {
     "BufReadPre " .. vim.fn.expand "~" .. "/Documents/Obsidian_Vault/**.md",
     "BufReadPre " .. vim.fn.expand "~" .. "/Documents/VocabularyBook/**.md",
   },
@@ -66,7 +66,7 @@ return {
     end,
 
     -- Optional, set to true if you don't want Obsidian to manage frontmatter.
-    disable_frontmatter = true,
+    disable_frontmatter = false,
 
     -- Optional, alternatively you can customize the frontmatter data.
     note_frontmatter_func = function(note)
@@ -149,7 +149,7 @@ return {
 
   },
   config = function(_, opts)
-    -- vim.opt_local.conceallevel = 1
+    -- vim.opt_local.conceallevel = 2
     require("obsidian").setup(opts)
 
     -- Optional, override the 'gf' keymap to utilize Obsidian's search functionality.
