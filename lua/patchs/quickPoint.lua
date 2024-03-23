@@ -14,9 +14,9 @@ local fullPoint = {
 }
 
 local quickFullPoint = function()
-    vim.keymap.set("i", leaderkey, "", { noremap = true, buffer = true })
+    vim.keymap.set({"i", "c"}, leaderkey, "", { noremap = true, buffer = true })
     for _, mapping in ipairs(fullPoint) do
-        vim.keymap.set("i", mapping.from, mapping.to, { noremap = true, buffer = true })
+        vim.keymap.set({"i", "c"}, mapping.from, mapping.to, { noremap = true, buffer = true })
     end
 end
 
