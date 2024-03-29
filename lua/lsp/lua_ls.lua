@@ -1,7 +1,10 @@
 return {
     settings = {
-        [Lua] = {
-
+        Lua = {
+          diagnostics = {
+            enable = true,
+            globals = {},
+          }
         },
     },
 }

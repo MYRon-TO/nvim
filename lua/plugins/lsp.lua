@@ -31,7 +31,7 @@ local M = {
   {
     "williamboman/mason.nvim",
     build = ":MasonUpdate", -- :MasonUpdate updates registry contents
-    lazy = false,
+    lazy = true,
     event = "VeryLazy",
     cmd = "Mason",
     depancies = {
@@ -76,7 +76,7 @@ function L.config()
 
   for _, server in pairs(servers) do
     Opts = {
-      -- on_attach = on_attach,
+      on_attach = on_attach,
       capabilities = capabilities,
       -- offset_encoding = "utf-16",
     }
