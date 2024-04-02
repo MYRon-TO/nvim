@@ -7,18 +7,6 @@ return {
     },
   },
   {
-    'weilbith/nvim-code-action-menu',
-    lazy = true,
-    cmd = 'CodeActionMenu',
-    keys = {
-      { "<leader>a", ":CodeActionMenu<CR>", "n" },
-    },
-  },
-  -- {
-  --   "wakatime/vim-wakatime",
-  --   event = "VeryLazy",
-  -- }
-  {
     "willothy/flatten.nvim",
     -- A plugin that avoids nested opening of nvim
     -- config = true,
@@ -47,7 +35,7 @@ return {
     build = ":TSUpdate html",
     dependencies = {
       "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim",   -- telescope 所需
+      "nvim-lua/plenary.nvim", -- telescope 所需
       "MunifTanjim/nui.nvim",
 
       -- 可选

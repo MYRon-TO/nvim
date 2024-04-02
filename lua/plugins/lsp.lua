@@ -1,20 +1,20 @@
 local servers = {
-  "clangd",        -- C/C++
-  "rust_analyzer", -- Rust
-  "lua_ls",        -- Lua
-  "jdtls",         -- Java
-  "pyright",       -- Python
-  "marksman",      -- Markdown
+  "clangd",                -- C/C++
+  "rust_analyzer",         -- Rust
+  "lua_ls",                -- Lua
+  "jdtls",                 -- Java
+  "pyright",               -- Python
+  "marksman",              -- Markdown
   -- "bashls",        -- Bash
-  "gopls",         -- Go
-  "omnisharp",     -- C#
-  "biome",         -- JS/TS JSON
-  "html",          -- HTML
-  "cssls",         -- CSS
-  "psalm",         -- PHP
-  "texlab",        -- LaTeX
-  "dockerls",      -- DockerFILE
-  "cmake",         -- CMake
+  "gopls",                 -- Go
+  "omnisharp",             -- C#
+  "biome",                 -- JS/TS JSON
+  "html",                  -- HTML
+  "cssls",                 -- CSS
+  "psalm",                 -- PHP
+  "texlab",                -- LaTeX
+  "dockerls",              -- DockerFILE
+  "cmake",                 -- CMake
   "kotlin_language_server" -- Kotlin
   -- "volar",         -- Vue
 }
@@ -114,14 +114,14 @@ function L.config()
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
       vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
       -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-      vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+      -- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
       vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
       vim.keymap.set('n', '<space>wl', function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
       end, opts)
       vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
       vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-      -- vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+      -- vim.keymap.set({ 'n', 'v' }, '<space>a', vim.lsp.buf.code_action, opts)
       vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
       -- vim.keymap.set('n', '<space>f', function()
       --     vim.lsp.buf.format { async = true }
@@ -197,4 +197,12 @@ return {
   M,
   L,
   B,
+  {
+    'weilbith/nvim-code-action-menu',
+    lazy = true,
+    cmd = 'CodeActionMenu',
+    keys = {
+      { "<leader>a", ":CodeActionMenu<CR>", "n" },
+    },
+  },
 }

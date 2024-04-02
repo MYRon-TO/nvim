@@ -23,8 +23,6 @@ return {
     },
     ft = { "markdown", "txt" },
   },
-
-  -- install with yarn or npm
   {
     "iamcco/markdown-preview.nvim",
     lazy = true,

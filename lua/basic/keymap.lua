@@ -10,7 +10,6 @@ vim.g.mapleader = ' '
 map('n', 'c<space>', 'o<Esc>', opts)
 map('n', 'cd', '0D', opts)
 map('n', 'cnh', ':nohl<CR>', opts_si)
-map('n', 'cfm', ':lua vim.lsp.buf.format({async = false })<CR>', opts)
 
 -- quick move
 map('n', '<c-j>', '5j', opts)
