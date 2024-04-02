@@ -61,26 +61,4 @@ return {
       ]]
     end,
   },
-  -- {
-  --     "instant-markdown/vim-instant-markdown",
-  --     ft = { "markdown" },
-  --     build = "yarn install",
-  --     config = function()
-
-  --         vim.cmd("set shell=bash\\ -i")
-  --         -- Uncomment to override defaults:
-  --         vim.g.instant_markdown_slow = 1
-  --         vim.g.instant_markdown_autostart = 0
-  --         vim.g.instant_markdown_open_to_the_world = 1
-  --         vim.g.instant_markdown_allow_unsafe_content = 1
-  --         vim.g.instant_markdown_allow_external_content = 0
-  --         vim.g.instant_markdown_mathjax = 1
-  --         vim.g.instant_markdown_mermaid = 1
-  --         vim.g.instant_markdown_logfile = '/tmp/instant_markdown.log'
-  --         vim.g.instant_markdown_autoscroll = 0
-  --         vim.g.instant_markdown_port = 8090
-  --         vim.g.instant_markdown_python = 1
-  --         vim.g.instant_markdown_theme = 'dark'
-  --     end,
-  -- },
 }

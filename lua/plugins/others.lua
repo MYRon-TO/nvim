@@ -20,15 +20,6 @@ return {
   {
     'nvim-tree/nvim-web-devicons',
     lazy = true,
-    -- opts = {
-    --   override = {
-    --     toml = {
-    --       icon = "",
-    --       color = "#428850",
-    --       name = "Toml"
-    --     }
-    --   }
-    -- }
   },
   {
     "kawre/leetcode.nvim",

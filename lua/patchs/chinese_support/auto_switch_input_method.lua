@@ -1,55 +1,21 @@
 local pattern = {
-    "*.h",
-    "*.c",
-    "*.cpp",
-    "*.py",
-    "*.go",
-    "*.java",
-    "*.js",
-    "*.ts",
-    "*.rs",
-    "*.lua",
-
     "*.md",
     "*.txt",
     "*.tex",
-
-    "*.sh",
 }
 -- smart english 2 chinese
 -- 检测上次输入状态
 -- 0 is english
 -- 1 is chinese
 local M = {}
-M.start = function(os_mac)
-    local input_toggle = 0
-    local is_mac = os_mac
-
-    if is_mac then
-        function ToChinese()
-            os.execute("im-select com.sogou.inputmethod.sogou.pinyin")
-        end
-
-        function ToEnglish()
-            os.execute("im-select com.apple.keylayout.ABC")
-        end
-
-        function IsChinese()
-            return string.find(io.popen("im-select"):read("*all"), "sogou")
-        end
-    else
-        function ToChinese()
-            os.execute("fcitx5-remote -o")
-        end
-
-        function ToEnglish()
-            os.execute("fcitx5-remote -c")
-        end
-
-        function IsChinese()
-            return tonumber(io.popen("fcitx5-remote"):read("*all")) == 2
-        end
+M.start = function()
+    if Switch_Input_Method == nil then
+      require("patchs/chinese_support/chinese_support").start()
     end
+
+    local SIM = require("patchs/chinese_support/chinese_support")
+
+    local input_toggle = 0
 
     local function isDoc()
         local ft = vim.bo.filetype
@@ -71,17 +37,17 @@ M.start = function(os_mac)
     function GoBack()
         local is_doc = isDoc()
         if (is_doc and input_toggle == 1) or (not is_doc and isInComment() and input_toggle == 1) then
-            ToChinese()
+            SIM.ToChinese()
         end
     end
 
     function LeaveInsert()
-        if IsChinese() then
+        if SIM.IsChinese() then
             input_toggle = 1
         else
             input_toggle = 0
         end
-        ToEnglish()
+        SIM.ToEnglish()
     end
 
     -- 当离开插入模式时，切换输入法为英文
