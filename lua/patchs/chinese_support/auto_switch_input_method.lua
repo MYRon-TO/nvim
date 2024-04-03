@@ -8,9 +8,9 @@ local pattern = {
 -- 0 is english
 -- 1 is chinese
 local M = {}
-M.start = function()
+M.start = function(is_fcitx)
     if Switch_Input_Method == nil then
-      require("patchs/chinese_support/chinese_support").start()
+      require("patchs/chinese_support/chinese_support").start(is_fcitx)
     end
 
     local SIM = require("patchs/chinese_support/chinese_support")

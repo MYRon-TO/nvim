@@ -1,7 +1,7 @@
 local servers = {
   "clangd",                -- C/C++
-  "rust_analyzer",         -- Rust
   "lua_ls",                -- Lua
+--   "rust_analyzer", -- Rust make sure it was installed but not to load
   "jdtls",                 -- Java
   "pyright",               -- Python
   "marksman",              -- Markdown
@@ -20,18 +20,20 @@ local servers = {
 }
 
 local packages = {
+  -- formatter
   "sqlfmt", -- SQL
   "isort",  -- Python
   "black",  -- Python
   "latexindent",
   "prettierd",
+
 }
 
 local M = {
   {
     "williamboman/mason.nvim",
     build = ":MasonUpdate", -- :MasonUpdate updates registry contents
-    lazy = true,
+    lazy = false,
     event = "VeryLazy",
     cmd = "Mason",
     depancies = {
