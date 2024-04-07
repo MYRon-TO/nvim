@@ -1,6 +1,6 @@
 return {
     settings = {
-        [python] = {
+        python = {
             analysis = {
                 typeCheckingMode = "on",
                 diagnosticMode = "workspace",
