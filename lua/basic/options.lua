@@ -73,3 +73,5 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 opt.syntax = 'on'
 -- vim.cmd([[highlight ]])
 
+-- opt.spelllang = 'en_us'
+-- opt.spell = true

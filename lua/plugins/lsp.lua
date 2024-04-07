@@ -1,64 +1,5 @@
-local servers = {
-  "clangd",                -- C/C++
-  "lua_ls",                -- Lua
---   "rust_analyzer", -- Rust make sure it was installed but not to load
-  "jdtls",                 -- Java
-  "pyright",               -- Python
-  "marksman",              -- Markdown
-  -- "bashls",        -- Bash
-  "gopls",                 -- Go
-  "omnisharp",             -- C#
-  "biome",                 -- JS/TS JSON
-  "html",                  -- HTML
-  "cssls",                 -- CSS
-  "psalm",                 -- PHP
-  "texlab",                -- LaTeX
-  "dockerls",              -- DockerFILE
-  "cmake",                 -- CMake
-  "kotlin_language_server" -- Kotlin
-  -- "volar",         -- Vue
-}
-
-local packages = {
-  -- formatter
-  "sqlfmt", -- SQL
-  "isort",  -- Python
-  "black",  -- Python
-  "latexindent",
-  "prettierd",
-
-}
-
-local M = {
-  {
-    "williamboman/mason.nvim",
-    build = ":MasonUpdate", -- :MasonUpdate updates registry contents
-    lazy = false,
-    event = "VeryLazy",
-    cmd = "Mason",
-    depancies = {
-      "williamboman/mason-lspconfig.nvim",
-      lazy = true,
-    },
-    config = function()
-      require("mason").setup()
-      local registry = require("mason-registry")
-      local ensure_installed = function()
-        for _, name in pairs(packages) do
-          if not registry.is_installed(name) then
-            local package = registry.get_package(name)
-            package:install()
-          end
-        end
-      end
-      registry.refresh(vim.schedule_wrap(ensure_installed))
-      require("mason-lspconfig").setup({
-        ensure_installed = servers,
-        automatic_installation = false,
-      })
-    end,
-  },
-}
+local servers = require("lsp_conf").servers
+local packages = require("lsp_conf").packages
 
 local L = {
   "neovim/nvim-lspconfig",
@@ -73,24 +14,17 @@ function L.config()
   local lspconfig = require('lspconfig')
 
   local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
   capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-  for _, server in pairs(servers) do
-    Opts = {
-      on_attach = on_attach,
-      capabilities = capabilities,
-      -- offset_encoding = "utf-16",
-    }
+  local opts = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
 
-    server = vim.split(server, "@")[1]
-
-    local require_ok, conf_opts = pcall(require, "lsp." .. server)
-    if require_ok then
-      Opts = vim.tbl_deep_extend("force", conf_opts, Opts)
-    end
-
-    lspconfig[server].setup(Opts)
+  for server_name, conf_opts in pairs(require("lsp_conf").lsp_servers) do
+    opts = vim.tbl_deep_extend("force", conf_opts, opts)
+    lspconfig[server_name].setup(opts)
   end
 
   -- Global mappings.
@@ -107,7 +41,6 @@ function L.config()
     callback = function(ev)
       -- Enable completion triggered by <c-x><c-o>
       vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-
       -- Buffer local mappings.
       -- See `:help vim.lsp.*` for documentation on any of the below functions
       local opts = { buffer = ev.buf }
@@ -195,10 +128,63 @@ local B = {
 
 }
 
+local M = {
+  {
+    "williamboman/mason.nvim",
+    build = ":MasonUpdate", -- :MasonUpdate updates registry contents
+    lazy = false,
+    event = "VeryLazy",
+    cmd = "Mason",
+    depancies = {
+      "williamboman/mason-lspconfig.nvim",
+      lazy = true,
+    },
+    config = function()
+      require("mason").setup()
+      local registry = require("mason-registry")
+      local ensure_installed = function()
+        for _, name in pairs(packages) do
+          if not registry.is_installed(name) then
+            local package = registry.get_package(name)
+            package:install()
+          end
+        end
+      end
+      registry.refresh(vim.schedule_wrap(ensure_installed))
+
+      require("mason-lspconfig").setup({
+        ensure_installed = servers,
+        automatic_installation = false,
+      })
+    end,
+  },
+}
+
+-- # A plugin to manage local lsp settings ( only json )
+-- > Not Need yet
+--
+-- local C = {
+--   'tamago324/nlsp-settings.nvim',
+--   lazy = false,
+--   cmd = {
+--     "LspSettings"
+--   },
+--   config = function()
+--     require("nlspsettings").setup({
+--       -- config_home = vim.fn.stdpath('config') .. '/nlsp-settings',
+--       -- local_settings_dir = ".nlsp-settings",
+--       local_settings_root_markers_fallback = { '.git', '.no_git' },
+--       -- append_default_schemas = true,
+--       loader = 'json'
+--     })
+--   end
+-- }
+
 return {
   M,
   L,
   B,
+  -- C,
   {
     'weilbith/nvim-code-action-menu',
     lazy = true,
