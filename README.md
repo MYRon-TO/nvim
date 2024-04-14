@@ -1,4 +1,8 @@
 # MY NEOVIM CONFIG
+
+## todo list
+- [ ] docker-contain nvim
+
 ## Here's cheatsheet
 ### How to use Shell
 ```shell

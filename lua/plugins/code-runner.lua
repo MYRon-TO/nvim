@@ -36,7 +36,7 @@ return {
           end,
           dart = "time dart",
           html = function()
-            vim.cmd(":LiveServer")
+            vim.cmd(":LiveServerStart")
           end,
           markdown = function()
             vim.cmd(":MarkdownPreview")

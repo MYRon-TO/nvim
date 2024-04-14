@@ -20,13 +20,15 @@ return {
       lua = { "stylua" },
       python = { "isort", "black" },                         -- isort first, then black
       javascript = { { "biome", "prettierd", "prettier" } }, -- prettierd or prettier
-      html = { { "biome", "prettierd" } },
+      json = {"biome"},
+      html = { "prettierd" },
       css = { "prettierd" },
       scss = { "prettierd" },
       latex = { "latexindent" },
       tex = { "latexindent" },
       rust = { "rustfmt" },
       markdown = {"prettierd"},
+      xml = {"xmlformatter"},
     },
     -- Set up format-on-save
     -- format_on_save = { timeout_ms = 500, lsp_fallback = true },
