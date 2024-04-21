@@ -1,8 +1,8 @@
 return {
-  -- root_dir = root_pattern(".no_git", ".git"),
+  -- root_dir =
   settings = {
     ltex = {
-      -- language = "zh-CN",
+      -- language = "auto",
       checkFrequency = "save",
     },
   },

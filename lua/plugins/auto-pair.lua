@@ -15,11 +15,13 @@ return {
 
     local npairs = require("nvim-autopairs")
     npairs.setup({
-      disable_filetype = { "markdown","TelescopePrompt", "spectre_panel" },
+      disable_filetype = { "TelescopePrompt", "spectre_panel" },
+      -- disable_filetype = { "markdown", "TelescopePrompt", "spectre_panel" },
       disable_in_macro = true,        -- disable when recording or executing a macro
       disable_in_visualblock = false, -- disable when insert after visual block mode
       disable_in_replace_mode = true,
       ignored_next_char = [=[[%w%%%'%[%"%.%`%$]]=],
+      -- ignored_next_char = [=[[%w%%%'%[%"%.]]=],
       enable_moveright = true,
       enable_afterquote = true,         -- add bracket pairs after quote
       enable_check_bracket_line = true, --- check bracket in same line
@@ -32,7 +34,7 @@ return {
       map_c_h = false, -- Map the <C-h> key to delete a pair
       map_c_w = false, -- map <c-w> to delete a pair if possible
       ts_config = {
-        java = false, -- don't check treesitter on java
+        -- java = false,  -- don't check treesitter on java
       }
     })
 
@@ -44,5 +46,7 @@ return {
     --   -- Rule("$$", "$$", "markdown"):with_cr(true),
     -- }
     -- )
+    --
+    npairs.remove_rule("`")
   end
 }
