@@ -13,7 +13,8 @@ local lsp_servers = {
   cssls = {},                            -- CSS
   -- psalm = {},                  -- PHP
   texlab = require("lsp_conf/texlab"),   -- LaTeX
-  ltex = require("lsp_conf/ltex"),       -- languageTool (grammar-chacker)
+  -- ltex = require("lsp_conf/ltex"),       -- languageTool (grammar-chacker)
+  -- vale_ls = {},
   dockerls = {},                         -- DockerFILE
   cmake = {},                            -- CMake
   -- kotlin_language_server = {}, -- Kotlin
@@ -27,7 +28,7 @@ local packages = {
   "black",  -- Python
   "latexindent",
   "prettierd",
-
+  "xmlformatter"
 }
 
 -- -- ### Debug ###
