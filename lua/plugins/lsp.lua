@@ -135,7 +135,7 @@ local M = {
     lazy = false,
     event = "VeryLazy",
     cmd = "Mason",
-    depancies = {
+    dependencies = {
       "williamboman/mason-lspconfig.nvim",
       lazy = true,
     },

@@ -133,3 +133,5 @@ return {
     vim.keymap.set("n", "<leader>fv", "<cmd>ObsidianSearch<CR>", { noremap = true })
   end,
 }
+
+

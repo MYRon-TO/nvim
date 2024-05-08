@@ -6,9 +6,10 @@ return {
       "nvim-lua/plenary.nvim",
     },
     lazy = true,
-    keys = {
-      { "<leader>lg", ":LazyGit<CR>", "n" },
-    },
+    -- keys = {
+    --   { "clg", ":LazyGit<CR>", "n" },
+    -- },
+    cmd = {"LazyGit"}
   },
   {
     'lewis6991/gitsigns.nvim',

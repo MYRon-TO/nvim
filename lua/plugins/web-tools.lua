@@ -28,7 +28,7 @@ return {
         lazy = true,
         build = 'pnpm add -g live-server',
         cmd = { 'LiveServerStart', 'LiveServerStop' },
-        filetypes = { 'html' },
+        ft = { 'html' },
         config = true
     },
 }
