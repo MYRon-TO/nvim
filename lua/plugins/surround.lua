@@ -15,7 +15,8 @@ return {
     -- },
     {
         "sustech-data/wildfire.nvim",
-        event = "VeryLazy",
+        lazy = true,
+        keys = { "<CR>" },
         dependencies = { "nvim-treesitter/nvim-treesitter" },
         config = function()
             require("wildfire").setup({

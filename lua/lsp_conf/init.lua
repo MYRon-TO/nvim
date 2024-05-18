@@ -13,22 +13,24 @@ local lsp_servers = {
   cssls = {},                            -- CSS
   -- psalm = {},                  -- PHP
   texlab = require("lsp_conf/texlab"),   -- LaTeX
+  typst_lsp = {},                        -- Typst
   -- ltex = require("lsp_conf/ltex"),       -- languageTool (grammar-chacker)
   -- vale_ls = {},
-  dockerls = {},                         -- DockerFILE
-  cmake = {},                            -- CMake
+  dockerls = {}, -- DockerFILE
+  cmake = {},    -- CMake
   -- kotlin_language_server = {}, -- Kotlin
   -- volar = {},                  -- Vue
 }
 
 local packages = {
   -- formatter
-  "sqlfmt", -- SQL
-  "isort",  -- Python
-  "black",  -- Python
+  "sqlfmt",   -- SQL
+  "isort",    -- Python
+  "black",    -- Python
+  "typstfmt", -- Typst
   "latexindent",
   "prettierd",
-  "xmlformatter"
+  "xmlformatter",
 }
 
 -- -- ### Debug ###

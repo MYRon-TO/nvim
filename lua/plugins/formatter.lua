@@ -29,6 +29,7 @@ return {
       rust = { "rustfmt" },
       markdown = {"prettierd"},
       xml = {"xmlformatter"},
+      typst = { "typstfmt" },
     },
     -- Set up format-on-save
     -- format_on_save = { timeout_ms = 500, lsp_fallback = true },

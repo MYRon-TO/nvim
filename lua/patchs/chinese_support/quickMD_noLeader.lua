@@ -1,4 +1,5 @@
 -- local leaderkey = "<c-g>"
+
 local SIM = require("patchs/chinese_support/chinese_support")
 local MdSnippets = {
   { from =  "<c-g><c-g>", to = "<Esc>/<++><CR>:nohlsearch<CR>\"_c4l" },
@@ -15,34 +16,34 @@ local MdSnippets = {
   { from =  "<c-4>",       to = "####<Space><CR><++><Esc>kA" },
   { from =  "<c-5>",       to = "#####<Space><CR><++><Esc>kA" },
   { from =  "<c-6>",       to = "######<Space><CR><++><Esc>kA" },
-  {
-    from =  "<c-m>",
-    to = function()
-      SIM.ToEnglish()
-      vim.api.nvim_feedkeys(" $$ <++>\x1bF$i", "i", false)
-    end
-  },
-  {
-    from =  "<c-M-M>",
-    to = function()
-      SIM.ToEnglish()
-      vim.api.nvim_feedkeys("$$\n$$\n<++>\x1b?\\$\\$\n:nohlsearch\nO", "i", false)
-    end
-  },
-  {
-    from =  "<c-c>",
-    to = function()
-      SIM.ToEnglish()
-      vim.api.nvim_feedkeys(" `` <++>\x1bF`i", "i", false)
-    end
-  },
-  {
-    from =  "<c-M-C>",
-    to = function()
-      vim.api.nvim_feedkeys("```\n```\n<++>\x1b?```\n:nohlsearch\nO", "i", false)
-      SIM.ToEnglish()
-    end
-  },
+--   {
+--     from =  "<c-m>",
+--     to = function()
+--       SIM.ToEnglish()
+--       vim.api.nvim_feedkeys(" $$ <++>\x1bF$i", "i", false)
+--     end
+--   },
+--   {
+--     from =  "<c-M-M>",
+--     to = function()
+--       SIM.ToEnglish()
+--       vim.api.nvim_feedkeys("$$\n$$\n<++>\x1b?\\$\\$\n:nohlsearch\nO", "i", false)
+--     end
+--   },
+--   {
+--     from =  "<c-c>",
+--     to = function()
+--       SIM.ToEnglish()
+--       vim.api.nvim_feedkeys(" `` <++>\x1bF`i", "i", false)
+--     end
+--   },
+--   {
+--     from =  "<c-M-C>",
+--     to = function()
+--       vim.api.nvim_feedkeys("```\n```\n<++>\x1b?```\n:nohlsearch\nO", "i", false)
+--       SIM.ToEnglish()
+--     end
+--   },
 }
 
 local MdMapping = function()

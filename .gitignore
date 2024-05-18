@@ -3,7 +3,10 @@
 .DS_Store
 # 
 /lua/plugins/colorscheme.lua
-/lua/plugins/indent.lua
+# /lua/plugins/indent.lua
+# /lua/plugins/lualine.lua
+# /lua/plugins/scorllbar.lua
+
 /init_nvim/IsFirst
 /node_modules/*
 /package.json
@@ -11,8 +14,6 @@
 /unused/README.md
 lazy-lock.json
 /lua/patchs/patchs.lua
-/project_manager.json
 /live-server
 project_manager.json
-lua/plugins/lualine.lua
-lua/plugins/scorllbar.lua
+/project_manager.json
