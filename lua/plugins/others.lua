@@ -1,12 +1,5 @@
 return {
   {
-    'mbbill/undotree',
-    lazy = true,
-    keys = {
-      { "cud", ":UndotreeToggle<CR>", "n" },
-    },
-  },
-  {
     "willothy/flatten.nvim",
     -- A plugin that avoids nested opening of nvim
     -- config = true,

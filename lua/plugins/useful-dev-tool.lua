@@ -1,5 +1,26 @@
 return {
   {
+    'mbbill/undotree',
+    lazy = true,
+    keys = {
+      { "cud", ":UndotreeToggle<CR>", "n" },
+    },
+  },
+
+  {
+    'theniceboy/antovim',
+    lazy = true,
+    keys = {
+      { "<leader>s", ":Anto<CR>", "n" },
+    },
+    config = function()
+      vim.g.custom_antovim_definitions = {
+        { 'yes', 'no' },
+        { '.', '。' },
+      }
+    end,
+  },
+  {
     'numToStr/Comment.nvim',
     event = "VeryLazy",
     config = function()
@@ -9,7 +30,7 @@ return {
         ---Whether the cursor should stay at its position
         sticky = true,
         ---Lines to be ignored while (un)comment
-        ignore = '^$',     ---LHS of toggle mappings in NORMAL mode
+        ignore = '^$', ---LHS of toggle mappings in NORMAL mode
         toggler = {
           ---Line-comment toggle keymap
           line = 'gcc',
