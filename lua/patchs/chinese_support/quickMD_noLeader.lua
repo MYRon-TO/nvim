@@ -1,6 +1,6 @@
 -- local leaderkey = "<c-g>"
 
-local SIM = require("patchs/chinese_support/chinese_support")
+-- local SIM = require("patchs/chinese_support/chinese_support")
 local MdSnippets = {
   { from =  "<c-g><c-g>", to = "<Esc>/<++><CR>:nohlsearch<CR>\"_c4l" },
   { from =  "<c-l>",       to = "---<CR><CR>" },

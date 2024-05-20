@@ -17,3 +17,4 @@ lazy-lock.json
 /live-server
 project_manager.json
 /project_manager.json
+lua/plugins/not_to_sysnc.lua
