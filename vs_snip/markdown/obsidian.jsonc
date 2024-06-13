@@ -1,19 +1,25 @@
 {
-  "patterns": {
-    "prefix": "patterns",
+  "attention": {
+    "prefix": "attention",
     "body": [
-      "## patterns",
-      ""
+      "> **Attention**:"
     ],
-    "description": "An Word's Patterns"
+    "description": "Attention"
   },
-
+  "pattern": {
+    "prefix": "pattern",
+    "body": [
+      "#### Pattern",
+      "- ${1:adjective}",
+      "    - ${2:(adjective e.g.) + noun}"
+    ],
+    "description": "Pattern"
+  },
   "init": {
     "prefix": "init",
     "body": [
       "# ${TM_FILENAME_BASE}",
-      "## patterns",
-      ""
+      "## "
     ],
     "description": "An Word's Init"
   },
@@ -21,29 +27,36 @@
   "no object verb": {
     "prefix": "vi",
     "body": [
-      "**[NO OBJECT]** "
+      "[#NO_OBJECT] "
     ],
     "description": "No Object Verb"
   },
   "with object verb": {
     "prefix": "vt",
     "body": [
-      "**[WITH OBJECT]** "
+      "[#WITH_OBJECT] "
     ],
     "description": "With Object Verb"
   },
   "countable noun": {
     "prefix": "cn",
     "body": [
-      "**[COUNTABLE]** "
+      "[#COUNTABLE] "
     ],
     "description": "Countable Noun"
   },
   "uncountable noun": {
     "prefix": "un",
     "body": [
-      "**[UNCOUNTABLE]** "
+      "[#UNCOUNTABLE] "
     ],
     "description": "Uncountable Noun"
+  },
+  "opposite": {
+    "prefix": "op",
+    "body": [
+      "#OPPOSITE "
+    ],
+    "description": "Opposite Word"
   }
 }
