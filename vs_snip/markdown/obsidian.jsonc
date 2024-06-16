@@ -27,30 +27,44 @@
   "no object verb": {
     "prefix": "vi",
     "body": [
-      "[#NO_OBJECT] "
+      "[#NO_OBJECT]"
     ],
     "description": "No Object Verb"
   },
   "with object verb": {
     "prefix": "vt",
     "body": [
-      "[#WITH_OBJECT] "
+      "[#WITH_OBJECT]"
     ],
     "description": "With Object Verb"
   },
   "countable noun": {
     "prefix": "cn",
     "body": [
-      "[#COUNTABLE] "
+      "[#COUNTABLE]"
     ],
     "description": "Countable Noun"
   },
   "uncountable noun": {
     "prefix": "un",
     "body": [
-      "[#UNCOUNTABLE] "
+      "[#UNCOUNTABLE]"
     ],
     "description": "Uncountable Noun"
+  },
+  "formal": {
+    "prefix": "formal",
+    "body": [
+      "[#FORMAL]"
+    ],
+    "description": "Formal"
+  },
+  "informal": {
+    "prefix": "informal",
+    "body": [
+      "[#INFORMAL]"
+    ],
+    "description": "Informal"
   },
   "opposite": {
     "prefix": "op",

@@ -15,6 +15,10 @@
         "path": "./markdown/obsidian.jsonc"
 			},
       {
+        "language": ["markdown"],
+        "path": "./markdown/ltex.jsonc"
+      },
+      {
 				"language": ["all"],
 				"path": "./all.jsonc"
       }

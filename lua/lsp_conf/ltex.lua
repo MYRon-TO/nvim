@@ -2,7 +2,7 @@ return {
   -- root_dir =
   settings = {
     ltex = {
-      -- language = "auto",
+      language = "auto",
       checkFrequency = "save",
     },
   },

@@ -1,4 +1,5 @@
 -- lazy.nvim
+require("env")
 require("basic/options")
 require("basic/keymap")
 

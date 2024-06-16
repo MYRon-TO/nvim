@@ -10,12 +10,12 @@ local MdSnippets = {
   -- { from =  "<c-t>",       to = "- [ ] " },
   -- { from =  "<c-p>",       to = "![](<++>) <++><Esc>F[a" },
   { from =  "<c-a>",       to = "[](<++>) <++><Esc>F[a" },
-  { from =  "<c-1>",       to = "#<Space><CR><++><Esc>kA" },
-  { from =  "<c-2>",       to = "##<Space><CR><++><Esc>kA" },
-  { from =  "<c-3>",       to = "###<Space><CR><++><Esc>kA" },
-  { from =  "<c-4>",       to = "####<Space><CR><++><Esc>kA" },
-  { from =  "<c-5>",       to = "#####<Space><CR><++><Esc>kA" },
-  { from =  "<c-6>",       to = "######<Space><CR><++><Esc>kA" },
+  { from =  "<c-1>",       to = "#<Space><Esc>A" },
+  { from =  "<c-2>",       to = "##<Space><Esc>A" },
+  { from =  "<c-3>",       to = "###<Space><Esc>A" },
+  { from =  "<c-4>",       to = "####<Space><Esc>A" },
+  { from =  "<c-5>",       to = "#####<Space><Esc>A" },
+  { from =  "<c-6>",       to = "######<Space><Esc>A" },
 --   {
 --     from =  "<c-m>",
 --     to = function()
