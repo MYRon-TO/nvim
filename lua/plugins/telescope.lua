@@ -91,10 +91,10 @@ local yank = {
       },
       picker = {
         select = {
-          action = nil,   -- nil to use default put action
+          action = nil, -- nil to use default put action
         },
         telescope = {
-          use_default_mappings = false,   -- if default mappings should be used
+          use_default_mappings = false, -- if default mappings should be used
           mappings = {
             i = {
               ["<cr>"] = mapping.put("p"),

@@ -16,34 +16,34 @@ local MdSnippets = {
   { from =  "<c-4>",       to = "####<Space><Esc>A" },
   { from =  "<c-5>",       to = "#####<Space><Esc>A" },
   { from =  "<c-6>",       to = "######<Space><Esc>A" },
---   {
---     from =  "<c-m>",
---     to = function()
---       SIM.ToEnglish()
---       vim.api.nvim_feedkeys(" $$ <++>\x1bF$i", "i", false)
---     end
---   },
---   {
---     from =  "<c-M-M>",
---     to = function()
---       SIM.ToEnglish()
---       vim.api.nvim_feedkeys("$$\n$$\n<++>\x1b?\\$\\$\n:nohlsearch\nO", "i", false)
---     end
---   },
---   {
---     from =  "<c-c>",
---     to = function()
---       SIM.ToEnglish()
---       vim.api.nvim_feedkeys(" `` <++>\x1bF`i", "i", false)
---     end
---   },
---   {
---     from =  "<c-M-C>",
---     to = function()
---       vim.api.nvim_feedkeys("```\n```\n<++>\x1b?```\n:nohlsearch\nO", "i", false)
---       SIM.ToEnglish()
---     end
---   },
+  {
+    from = "<c-l>",
+    to = function()
+      -- SIM.ToEnglish()
+      vim.api.nvim_feedkeys(" $$ <++>\x1bF$i", "i", false)
+    end
+  },
+  {
+    from = "<c-m-l>",
+    to = function()
+      -- SIM.ToEnglish()
+      vim.api.nvim_feedkeys("$$\n$$\n<++>\x1b?\\$\\$\n:nohlsearch\nO", "i", false)
+    end
+  },
+  {
+    from = "<c-c>",
+    to = function()
+      -- SIM.ToEnglish()
+      vim.api.nvim_feedkeys(" `` <++>\x1bF`i", "i", false)
+    end
+  },
+  {
+    from = "<c-M-c>",
+    to = function()
+      vim.api.nvim_feedkeys("```\n```\n<++>\x1b?```\n:nohlsearch\nO", "i", false)
+      -- SIM.ToEnglish()
+    end
+  },
 }
 
 local MdMapping = function()

@@ -1,38 +1,38 @@
 local leaderkey = "<c-g>"
-local SIM = require("patchs/chinese_support/chinese_support")
+-- local SIM = require("patchs/chinese_support/chinese_support")
 local MdSnippets = {
-  { from = leaderkey .. leaderkey, to = "<Esc>/<++><CR>:nohlsearch<CR>\"_c4l" },
-  { from = leaderkey .. "l",       to = "---<CR><CR>" },
-  { from = leaderkey .. "b",       to = " **** <++><Esc>F*hi" },
-  { from = leaderkey .. "s",       to = " ~~~~ <++><Esc>F~hi" },
-  { from = leaderkey .. "i",       to = " ** <++><Esc>F*i" },
-  { from = leaderkey .. "t",       to = "- [ ] " },
-  { from = leaderkey .. "p",       to = "![](<++>) <++><Esc>F[a" },
-  { from = leaderkey .. "a",       to = "[](<++>) <++><Esc>F[a" },
-  { from = leaderkey .. "1",       to = "#<Space><CR><++><Esc>kA" },
-  { from = leaderkey .. "2",       to = "##<Space><CR><++><Esc>kA" },
-  { from = leaderkey .. "3",       to = "###<Space><CR><++><Esc>kA" },
-  { from = leaderkey .. "4",       to = "####<Space><CR><++><Esc>kA" },
-  { from = leaderkey .. "5",       to = "#####<Space><CR><++><Esc>kA" },
-  { from = leaderkey .. "6",       to = "######<Space><CR><++><Esc>kA" },
+  -- { from = leaderkey .. leaderkey, to = "<Esc>/<++><CR>:nohlsearch<CR>\"_c4l" },
+  -- { from = leaderkey .. "l",       to = "---<CR><CR>" },
+  -- { from = leaderkey .. "b",       to = " **** <++><Esc>F*hi" },
+  -- { from = leaderkey .. "s",       to = " ~~~~ <++><Esc>F~hi" },
+  -- { from = leaderkey .. "i",       to = " ** <++><Esc>F*i" },
+  -- { from = leaderkey .. "t",       to = "- [ ] " },
+  -- { from = leaderkey .. "p",       to = "![](<++>) <++><Esc>F[a" },
+  -- { from = leaderkey .. "a",       to = "[](<++>) <++><Esc>F[a" },
+  -- { from = leaderkey .. "1",       to = "#<Space><CR><++><Esc>kA" },
+  -- { from = leaderkey .. "2",       to = "##<Space><CR><++><Esc>kA" },
+  -- { from = leaderkey .. "3",       to = "###<Space><CR><++><Esc>kA" },
+  -- { from = leaderkey .. "4",       to = "####<Space><CR><++><Esc>kA" },
+  -- { from = leaderkey .. "5",       to = "#####<Space><CR><++><Esc>kA" },
+  -- { from = leaderkey .. "6",       to = "######<Space><CR><++><Esc>kA" },
   {
     from = leaderkey .. "m",
     to = function()
-      SIM.ToEnglish()
+      -- SIM.ToEnglish()
       vim.api.nvim_feedkeys(" $$ <++>\x1bF$i", "i", false)
     end
   },
   {
     from = leaderkey .. "M",
     to = function()
-      SIM.ToEnglish()
+      -- SIM.ToEnglish()
       vim.api.nvim_feedkeys("$$\n$$\n<++>\x1b?\\$\\$\n:nohlsearch\nO", "i", false)
     end
   },
   {
     from = leaderkey .. "c",
     to = function()
-      SIM.ToEnglish()
+      -- SIM.ToEnglish()
       vim.api.nvim_feedkeys(" `` <++>\x1bF`i", "i", false)
     end
   },
@@ -40,7 +40,7 @@ local MdSnippets = {
     from = leaderkey .. "C",
     to = function()
       vim.api.nvim_feedkeys("```\n```\n<++>\x1b?```\n:nohlsearch\nO", "i", false)
-      SIM.ToEnglish()
+      -- SIM.ToEnglish()
     end
   },
 }

@@ -147,6 +147,7 @@ local A = {
       telescope = vim.tbl_extend(
         "force",
         -- telescope theme: https://github.com/nvim-telescope/telescope.nvim#themes
+        -- require("telescope.themes").get_cursor(),
         require("telescope.themes").get_dropdown(),
         -- a table for customizing content
         {
@@ -158,9 +159,7 @@ local A = {
           -- see also `:h telescope.make_entry` and `:h telescope.pickers.entry_display`.
           -- fun(values: { index: integer, action: Action, title: string, client_name: string }[]): function
           make_make_display = nil,
-
-        }
-      ),
+        }),
 
     }
   end,

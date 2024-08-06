@@ -16,8 +16,8 @@ local lsp_servers = {
   typst_lsp = {},                        -- Typst
   ltex = require("lsp_conf/ltex"),       -- languageTool (grammar-chacker)
   -- vale_ls = {},
-  dockerls = {}, -- DockerFILE
-  cmake = {},    -- CMake
+  dockerls = {},                         -- DockerFILE
+  cmake = {},                            -- CMake
   -- kotlin_language_server = {}, -- Kotlin
   -- volar = {},                  -- Vue
 }
@@ -52,6 +52,7 @@ local function get_servers(servers)
   for server, _ in pairs(servers) do
     table.insert(server_list, server)
   end
+  table.insert(server_list, "rust_analyzer")
   return server_list
 end
 
