@@ -18,5 +18,4 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
 -- patch
-require("patchs/patchs")
-vim.api.nvim_set_hl(0, "visual", { reverse = true })
+-- require("patchs/patchs")

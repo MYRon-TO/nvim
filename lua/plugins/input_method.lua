@@ -1,4 +1,4 @@
-return{
+return {
   {
     "keaising/im-select.nvim",
     lazy = true,
@@ -37,6 +37,57 @@ return{
         -- Async run `default_command` to switch IM or not
         async_switch_im         = true
       })
+    end,
+  },
+  {
+    "liubianshi/cmp-lsp-rimels",
+    -- keys = { { ";f", mode = "i" } },
+    lazy = true;
+    event = "InsertEnter",
+    config = function()
+
+      local detector_for_norg = function(info)
+        info = info or vim.inspect_pos()
+        local trees = info.treesitter
+        local extmarks = info.extmarks
+        local englist_env = false
+        for _, ts in ipairs(trees) do
+          if
+              ts.capture == "neorg.markup.variable"
+              or ts.capture == "neorg.markup.verbatim"
+              or ts.capture == "neorg.markup.inline_math"
+          then
+            return true
+          elseif ts.capture == "comment" then
+            return false
+          end
+        end
+        for _, ext in ipairs(extmarks) do
+          if
+              ext.opts
+              and ext.opts.hl_group == "@neorg.tags.ranged_verbatim.code_block"
+          then
+            return true
+          end
+        end
+        return englist_env
+      end
+
+      vim.system({ 'rime_ls', '--listen', '127.0.0.1:9257' })
+      require('rimels').setup(
+        {
+          keys = { start = ";f", stop = ";;", esc = ";j", undo = ";u" },
+          cmd = vim.lsp.rpc.connect("127.0.0.1", 9257),
+          shared_data_dir = ENV.rime_shared_data_dir,
+          -- schema_trigger_character = "&", -- [since v0.2.0] 当输入此字符串时请求补全会触发 “方案选单”
+          schema_trigger_character = "&", -- [since v0.2.0] 当输入此字符串时请求补全会触发 “方案选单”
+          detectors = {
+            with_treesitter = {
+              norg = detector_for_norg,
+            },
+          },
+        }
+      )
     end,
   }
 }

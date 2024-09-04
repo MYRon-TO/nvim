@@ -9,9 +9,15 @@ if IS_LINUX then
   }
 
   ENV.delta_path = "/usr/bin/delta"
+
+  ENV.rime_shared_data_dir = "/usr/share/rime-data"
 else
   ENV.im_select = {
     default_im_select = "com.apple.keylayout.ABC",
     default_command = "im-select",
   }
+
+  -- ENV.delta_path = "/usr/local/bin/delta"
+
+  ENV.rime_shared_data_dir = "/Library/Input Methods/Squirrel.app/Contents/SharedSupport"
 end

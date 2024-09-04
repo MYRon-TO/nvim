@@ -102,7 +102,20 @@ function M.config()
   end
   local luasnip = require("luasnip")
   local cmp = require("cmp")
+  local compare = require('cmp.config.compare')
   cmp.setup {
+    sorting = {
+      comparators = {
+        compare.sort_text,
+        compare.offset,
+        compare.exact,
+        compare.score,
+        compare.recently_used,
+        compare.kind,
+        compare.length,
+        compare.order,
+      }
+    },
     snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body) -- For `luasnip` users.
@@ -290,6 +303,5 @@ local N = {
     }
   end,
 }
-
 
 return { M, N }

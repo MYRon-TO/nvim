@@ -70,4 +70,7 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   end,
 })
 
+-- 选择时高亮
+vim.api.nvim_set_hl(0, "visual", { reverse = true })
+
 opt.syntax = 'on'
