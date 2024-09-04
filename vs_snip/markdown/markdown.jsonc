@@ -1,51 +1,40 @@
 {
+  "bold" : {
+    "prefix" : "**",
+    "body" : [
+      "**${1:bold}** ${2:}"
+    ],
+    "description": "bold the text"
+  },
+  "italic" : {
+    "prefix" : "*",
+    "body" : [
+      "*${1:italic}* ${2:}"
+    ],
+    "description": "italic the text"
+  },
+
   "todo" : {
     "prefix" : "todo",
     "body" : [
-      "#todo: ${1:待办}"
+      "> [!todo] #todo: ${1:待办}"
     ],
-    "description": "todo"
+    "description": "add todo item"
   },
-  "define" : {
-    "prefix" : "define",
+  "callout" : {
+    "prefix" : "callout",
     "body" : [
-      "#defination ${1:定义}"
-    ],
-    "description": "TAG: defination"
-  },
-  "theorem" : {
-    "prefix" : "theorem",
-    "body" : [
-      "#theorem ${1:定理}"
-    ],
-    "description": "TAG: theorem"
-  },
-  "nutdo" : {
-    "prefix" : "nutdo",
-    "body" : [
-      "> #nut_do  ",
-      "> ${1:do what}",
+      "> [!${1|note,abstract,info,todo,tip,success,question,warning,failure,danger,bug,example,quote|}] ${2:title}",
       ">",
-      "> ---",
-      "> <span style=\"color:red\">𝞦 not do</span>  ",
-      "> ${2:not do}",
-      ">",
-      "> ---",
-      "> <span style=\"color:yellow\">? why</span>  ",
-      "> ${3:why}",
-      ">",
-      "> ---",
-      "> <span style=\"color:green\">✓ do</span>  ",
-      "> ${4:do}",
-      ">"
+      "> ${3:content}"
     ],
-    "description": "TAG: only nut do"
+    "description": "add an callout block"
   },
-  "book_page":{
-    "prefix" : "book",
+  "inline callout" : {
+    "prefix" : "co",
     "body" : [
-      "#book ${1:book_name}P${2:page}"
+      "> [!${1|note,abstract,info,todo,tip,success,question,warning,failure,danger,bug,example,quote|}] ${2:title}"
     ],
-    "description": "TAG: Read the book at this page"
+    "description": "add an inline callout"
   }
 }

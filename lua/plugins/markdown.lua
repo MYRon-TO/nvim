@@ -41,36 +41,50 @@ return {
   },
   {
     'Kicamon/markdown-table-mode.nvim',
+    lazy = true,
+    ft = { 'markdown', 'txt' },
     config = function()
-      require('markdown-table-mode').setup()
+      require('markdown-table-mode').setup({
+        options = {
+          insert = false, -- when typeing "|"
+          insert_leave = true, -- when leaveing insert
+        },
+      })
     end
   },
   -- {
-  --   "bullets-vim/bullets.vim",
+  --   'MeanderingProgrammer/render-markdown.nvim',
   --   lazy = true,
-  --   ft = { "markdown", "txt" },
-  --   config = function()
-  --     vim.cmd [[
-  --       let g:bullets_set_mappings = 0
+  --   ft = { 'markdown' },
+  --   opts = {},
+  --   dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+  -- }
+  {
+    "bullets-vim/bullets.vim",
+    lazy = true,
+    ft = { "markdown", "txt" },
+    config = function()
+      vim.cmd [[
+        let g:bullets_set_mappings = 0
 
-  --       " \ ['inoremap', '<cr>', '<cr>'],
-  --       let g:bullets_custom_mappings = [
-  --         \ ['imap', '<cr>', '<Plug>(bullets-newline)'],
-  --         \ ['inoremap', '<C-cr>', '<cr>'],
-  --         \
-  --         \ ['nmap', 'o', '<Plug>(bullets-newline)'],
-  --         \
-  --         \ ['vmap', 'gN', '<Plug>(bullets-renumber)'],
-  --         \ ['nmap', 'gN', '<Plug>(bullets-renumber)'],
-  --         \
-  --         \ ['imap', '<C-t>', '<Plug>(bullets-demote)'],
-  --         \ ['nmap', '>>', '<Plug>(bullets-demote)'],
-  --         \ ['vmap', '>', '<Plug>(bullets-demote)'],
-  --         \ ['imap', '<C-d>', '<Plug>(bullets-promote)'],
-  --         \ ['nmap', '<<', '<Plug>(bullets-promote)'],
-  --         \ ['vmap', '<', '<Plug>(bullets-promote)'],
-  --         \ ]
-  --     ]]
-  --   end,
-  -- },
+        " \ ['inoremap', '<cr>', '<cr>'],
+        let g:bullets_custom_mappings = [
+          \ ['imap', '<cr>', '<Plug>(bullets-newline)'],
+          \ ['inoremap', '<C-cr>', '<cr>'],
+          \
+          \ ['nmap', 'o', '<Plug>(bullets-newline)'],
+          \
+          \ ['vmap', 'gN', '<Plug>(bullets-renumber)'],
+          \ ['nmap', 'gN', '<Plug>(bullets-renumber)'],
+          \
+          \ ['imap', '<C-t>', '<Plug>(bullets-demote)'],
+          \ ['nmap', '>>', '<Plug>(bullets-demote)'],
+          \ ['vmap', '>', '<Plug>(bullets-demote)'],
+          \ ['imap', '<C-d>', '<Plug>(bullets-promote)'],
+          \ ['nmap', '<<', '<Plug>(bullets-promote)'],
+          \ ['vmap', '<', '<Plug>(bullets-promote)'],
+          \ ]
+      ]]
+    end,
+  },
 }
