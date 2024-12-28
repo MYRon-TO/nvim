@@ -17,7 +17,7 @@ else
     default_command = "im-select",
   }
 
-  -- ENV.delta_path = "/usr/local/bin/delta"
+  ENV.delta_path = "/opt/homebrew/bin/delta"
 
   ENV.rime_shared_data_dir = "/Library/Input Methods/Squirrel.app/Contents/SharedSupport"
 end
