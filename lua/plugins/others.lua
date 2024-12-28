@@ -14,27 +14,35 @@ return {
     'nvim-tree/nvim-web-devicons',
     lazy = true,
   },
-  -- {
-  --   "kawre/leetcode.nvim",
-  --   build = ":TSUpdate html",
-  --   dependencies = {
-  --     "nvim-telescope/telescope.nvim",
-  --     "nvim-lua/plenary.nvim", -- telescope 所需
-  --     "MunifTanjim/nui.nvim",
+  {
+    "kawre/leetcode.nvim",
+    build = ":TSUpdate html",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim", -- telescope 所需
+      "MunifTanjim/nui.nvim",
 
-  --     -- 可选
-  --     "nvim-treesitter/nvim-treesitter",
-  --     "rcarriga/nvim-notify",
-  --     "nvim-tree/nvim-web-devicons",
-  --   },
-  --   opts = {
-  --     -- 配置放在这里
-  --     arg = "leetcode",
-  --     lang = "rust",
-  --     cn = {
-  --       enabled = true,
-  --     },
-  --     image_support = false,
-  --   },
-  -- }
+      -- 可选
+      "nvim-treesitter/nvim-treesitter",
+      "rcarriga/nvim-notify",
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = {
+      -- 配置放在这里
+      arg = "leetcode",
+      cn = {
+        enabled = true,
+      },
+      injector = { ---@type table<lc.lang, lc.inject>
+        ["python3"] = {
+          before = true
+        },
+        ["cpp"] = {
+          before = { "#include <bits/stdc++.h>", "using namespace std;" },
+          after = "int main() {}",
+        }
+      },
+      image_support = false,
+    },
+  }
 }

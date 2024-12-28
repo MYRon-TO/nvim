@@ -1,3 +1,9 @@
+local default_formatters = {
+  "prettierd",
+  "prettier",
+  stop_after_first = true,
+}
+
 return {
   "stevearc/conform.nvim",
   event = { "BufWritePre" },
@@ -19,33 +25,35 @@ return {
     formatters_by_ft = {
 
       -- * config/data
-      json = { "biome" },
+      json = { "dprint" },
+      toml = { "dprint" },
 
       -- * web
       -- ** xml
-      xml = { "xmlformatter" },
-      html = { "prettierd" },
+      xml = default_formatters,
+      html = default_formatters,
       svelte = { "prettierd" },
       -- ** css
-      css = { "prettierd" },
-      scss = { "prettierd" },
+      css = default_formatters,
+      scss = default_formatters,
       -- ** js/ts
-      javascript = { { "biome", "prettierd", "prettier" } }, -- prettierd or prettier
-      typescript = { { "biome", "prettierd", "prettier" } }, -- prettierd or prettier
+      javascript = default_formatters,
+      typescript = default_formatters,
 
       -- * markup
       latex = { "latexindent" },
       tex = { "latexindent" },
-      markdown = { "prettierd" },
       typst = { "typstfmt" },
+      ["markdown"] = { "prettierd", "markdownlint-cli2", "markdown-toc" },
+      ["markdown.mdx"] = { "prettierd", "markdownlint-cli2", "markdown-toc" },
 
       -- * code
-
       lua = { "stylua" },
       python = { "isort", "black" }, -- isort first, then black
       shell = { "shfmt" },
 
-      rust = { "rustfmt" },
+      -- rust = { "dprint", "rustfmt", stop_after_first = true },
+      rust = { "rustfmt", stop_after_first = true },
 
     },
     -- Set up format-on-save

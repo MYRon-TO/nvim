@@ -74,3 +74,7 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 vim.api.nvim_set_hl(0, "visual", { reverse = true })
 
 opt.syntax = 'on'
+
+-- views can only be fully collapsed with the global statusline
+opt.laststatus = 3
+

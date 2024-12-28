@@ -17,11 +17,11 @@
       {
         "language": ["markdown"],
         "path": "./markdown/ltex.jsonc"
-      },
-      {
-				"language": ["all"],
-				"path": "./all.jsonc"
       }
+    //   {
+				// "language": ["all"],
+				// "path": "./all.jsonc"
+    //   }
 		]
 	}
 }

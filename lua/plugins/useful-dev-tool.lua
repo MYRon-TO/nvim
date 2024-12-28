@@ -3,7 +3,7 @@ return {
     'mbbill/undotree',
     lazy = true,
     keys = {
-      { "cud", ":UndotreeToggle<CR>", "n" },
+      { "<leader>ud", ":UndotreeToggle<CR>", "n" },
     },
   },
 

@@ -3,7 +3,7 @@ local packages = require("lsp_conf").packages
 
 local L = {
   "neovim/nvim-lspconfig",
-  lazy = true,
+  lazy = "LazyFile",
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
   },
@@ -17,13 +17,21 @@ function L.config()
   capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
   capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-  local opts = {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+  -- lspconfig.lua_ls.setup {
+  --   settings = {
+  --     Lua = {
+  --       diagnostics = {
+  --         globals = { "vim" },
+  --       },
+  --     },
+  --   },
+  -- }
 
   for server_name, conf_opts in pairs(require("lsp_conf").lsp_servers) do
-    opts = vim.tbl_deep_extend("force", conf_opts, opts)
+    local opts = vim.tbl_deep_extend("force", conf_opts, {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    })
     lspconfig[server_name].setup(opts)
   end
 

@@ -18,4 +18,4 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
 -- patch
--- require("patchs/patchs")
+require("patchs/patchs")

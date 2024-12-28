@@ -13,13 +13,14 @@ local lsp_servers = {
   cssls = {},                            -- CSS
   -- psalm = {},                  -- PHP
   texlab = require("lsp_conf/texlab"),   -- LaTeX
-  typst_lsp = {},                        -- Typst
-  ltex = require("lsp_conf/ltex"),       -- languageTool (grammar-chacker)
+  tinymist = require("lsp_conf/tinymist"), -- Typst
+  ltex = require("lsp_conf/ltex"), -- languageTool (grammar-chacker)
   -- vale_ls = {},
-  dockerls = {},                         -- DockerFILE
-  cmake = {},                            -- CMake
+  dockerls = {},                   -- DockerFILE
+  cmake = {},                      -- CMake
   -- kotlin_language_server = {}, -- Kotlin
   -- volar = {},                  -- Vue
+  gdtoolkit = {},                 -- Godot
 }
 
 local packages = {
@@ -30,7 +31,9 @@ local packages = {
   "typstfmt", -- Typst
   "latexindent",
   "prettierd",
-  "xmlformatter",
+  "dprint",
+  "markdown-toc",
+  "markdownlint-cli2"
 }
 
 -- -- ### Debug ###

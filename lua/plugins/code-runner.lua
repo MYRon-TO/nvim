@@ -48,6 +48,9 @@ return {
           ts = {
             "time node $fileName",
           },
+          typst = {
+            "typst compile $fileName",
+          },
         },
         project = {
 

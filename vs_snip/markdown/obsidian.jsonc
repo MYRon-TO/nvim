@@ -27,6 +27,13 @@
     ],
     "description": "Plural Noun"
   },
+  "singular noun": {
+    "prefix": "si",
+    "body": [
+      "[#SINGULAR]"
+    ],
+    "description": "singular Noun"
+  },
   "uncountable noun": {
     "prefix": "un",
     "body": [

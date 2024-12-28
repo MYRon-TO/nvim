@@ -7,23 +7,23 @@ local opts_si = { noremap = true, silent = true }
 vim.g.mapleader = ' '
 
 -- useful
-map('n', 'c<space>', 'o<Esc>', opts)
-map('n', 'cd', '0D', opts)
+map('n', 'c<space>', 'o<Esc>', opts_si)
+map('n', 'cd', '0D', opts_si)
 map('n', 'cnh', ':nohl<CR>', opts_si)
 
 -- quick move
-map('n', '<c-j>', '10j', opts)
-map('n', '<c-k>', '10k', opts)
-map('n', '<c-h>', '10h', opts)
-map('n', '<c-l>', '10l', opts)
-map('v', '<c-j>', '10j', opts)
-map('v', '<c-k>', '10k', opts)
-map('v', '<c-h>', '10h', opts)
-map('v', '<c-l>', '10l', opts)
-map('x', '<c-j>', '10j', opts)
-map('x', '<c-k>', '10k', opts)
-map('x', '<c-h>', '10h', opts)
-map('x', '<c-l>', '10l', opts)
+map('n', '<c-j>', '10j', opts_si)
+map('n', '<c-k>', '10k', opts_si)
+map('n', '<c-h>', '10h', opts_si)
+map('n', '<c-l>', '10l', opts_si)
+map('v', '<c-j>', '10j', opts_si)
+map('v', '<c-k>', '10k', opts_si)
+map('v', '<c-h>', '10h', opts_si)
+map('v', '<c-l>', '10l', opts_si)
+map('x', '<c-j>', '10j', opts_si)
+map('x', '<c-k>', '10k', opts_si)
+map('x', '<c-h>', '10h', opts_si)
+map('x', '<c-l>', '10l', opts_si)
 
 -- split window
 -- map('n', 'csh', ':set nosplitright<CR>:vsplit<CR>', opts_si)
@@ -44,11 +44,12 @@ map('n', '<LEADER><down>', ':res +5<CR>', opts_si)
 map('n', '<LEADER><up>', ':res -5<CR>', opts_si)
 
 -- tab
-map('n', 'ct', ':tabe<CR>', opts_si)
-map('n', '<LEADER>H', ':-tabnext<CR>', opts_si)
-map('n', '<LEADER>L', ':+tabnext<CR>', opts_si)
-map('n', '<LEADER>J', ':-tabmove<CR>', opts_si)
-map('n', '<LEADER>K', ':+tabmove<CR>', opts_si)
+-- map('n', 'ct', ':tabe<CR>', opts_si)
+map('n', '<C-w>t', ':tabe<CR>', opts_si)
+map('n', '<LEADER>J', ':-tabnext<CR>', opts_si)
+map('n', '<LEADER>K', ':+tabnext<CR>', opts_si)
+map('n', '<LEADER>H', ':-tabmove<CR>', opts_si)
+map('n', '<LEADER>L', ':+tabmove<CR>', opts_si)
 
 -- buffer
 map('n', '<LEADER>F', ':bfirst<CR>', opts_si)

@@ -4,6 +4,7 @@ local fullPoint = {
     { from = leaderkey .. ",",       to = "，"    },
     { from = leaderkey .. ".",       to = "。"    },
     { from = leaderkey .. ";",       to = "；"    },
+    { from = leaderkey .. ":",       to = "："    },
     { from = leaderkey .. "<",       to = "《"    },
     { from = leaderkey .. ">",       to = "》"    },
     { from = leaderkey .. "|",       to = "·"     },
@@ -12,6 +13,8 @@ local fullPoint = {
     { from = leaderkey .. "`",      to = "·"    },
     { from = leaderkey .. "?",      to = "？"    },
     { from = leaderkey .. "\"",      to = "“”"    },
+    { from = leaderkey .. "(",      to = "（"    },
+    { from = leaderkey .. ")",      to = "）"    },
 
 }
 

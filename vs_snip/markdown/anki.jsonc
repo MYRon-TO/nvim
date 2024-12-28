@@ -19,10 +19,10 @@
   },
 
   "quick_add_word" : {
-    "prefix" : "af",
+    "prefix" : "tp",
     "body": [
       "",
-      "${TM_FILENAME_BASE} #flashcard",
+      "${TM_FILENAME_BASE} #TPflashcard",
       "${2:背面}",
       ""
     ],

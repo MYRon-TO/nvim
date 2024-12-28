@@ -11,6 +11,26 @@ local M = {
     { "kdheepak/cmp-latex-symbols", },
 
     {
+      "zbirenbaum/copilot-cmp",
+      dependencies = {
+        {
+          "zbirenbaum/copilot.lua",
+          lazy = true,
+          config = function()
+            require("copilot").setup({
+              suggestion = { enabled = false },
+              panel = { enabled = false },
+            })
+          end
+        },
+      },
+      lazy = true,
+      config = function()
+        require("copilot_cmp").setup()
+      end
+    },
+
+    {
       'L3MON4D3/LuaSnip',
       build = "make install_jsregexp",
       dependencies = { "rafamadriz/friendly-snippets" },
@@ -219,6 +239,7 @@ function M.config()
       })
     },
     sources = {
+      { name = "copilot"},
       { name = "nvim_lsp" },
       { name = "nvim_lua" },
       { name = 'luasnip' },
