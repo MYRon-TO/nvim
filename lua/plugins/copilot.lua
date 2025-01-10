@@ -66,6 +66,17 @@ return {
       ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "vertex" | "cohere" | "copilot" | string
       provider = "copilot",
       auto_suggestions_provider = "copilot",
+      ---@type AvanteSupportedProvider
+      copilot = {
+        endpoint = "https://api.githubcopilot.com",
+        model = "gpt-4o-2024-08-06",
+        proxy = nil,        -- [protocol://]host[:port] Use this proxy
+        allow_insecure = false, -- Allow insecure server connections
+        timeout = 30000,    -- Timeout in milliseconds
+        temperature = 0,
+        max_tokens = 4096,
+        -- max_tokens = 8198,
+      },
       mappings = {
         ---@class AvanteConflictMappings
         diff = {

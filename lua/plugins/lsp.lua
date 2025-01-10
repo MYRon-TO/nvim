@@ -1,6 +1,20 @@
 local servers = require("lsp_conf").servers
 local packages = require("lsp_conf").packages
 
+-- ### Debug ###
+function _PrintTable(my_table, indent)
+  indent = indent or 0
+  for key, value in pairs(my_table) do
+    if type(value) == "table" then
+      print(string.rep(" ", indent) .. key .. " = {")
+      _PrintTable(value, indent + 2)
+      print(string.rep(" ", indent) .. "}")
+    else
+      print(string.rep(" ", indent) .. key .. " = " .. tostring(value))
+    end
+  end
+end
+
 local L = {
   "neovim/nvim-lspconfig",
   lazy = "LazyFile",
@@ -17,21 +31,13 @@ function L.config()
   capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
   capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-  -- lspconfig.lua_ls.setup {
-  --   settings = {
-  --     Lua = {
-  --       diagnostics = {
-  --         globals = { "vim" },
-  --       },
-  --     },
-  --   },
-  -- }
-
   for server_name, conf_opts in pairs(require("lsp_conf").lsp_servers) do
-    local opts = vim.tbl_deep_extend("force", conf_opts, {
-      on_attach = on_attach,
-      capabilities = capabilities,
-    })
+    local opts = conf_opts
+    -- opts.on_attach = on_attach
+    opts.capabilities = vim.tbl_deep_extend("force", conf_opts.capabilities or {}, capabilities)
+    -- if server_name == "tinymist" then
+    --   _PrintTable(opts)
+    -- end
     lspconfig[server_name].setup(opts)
   end
 

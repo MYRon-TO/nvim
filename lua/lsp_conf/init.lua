@@ -7,20 +7,22 @@ local lsp_servers = {
   marksman = {},                         -- Markdown
   -- bashls = {},                 -- Bash
   gopls = {},                            -- Go
-  -- omnisharp = {},              -- C#
+  -- omnisharp_mono = {},              -- C#
+  csharp_ls = {},
   biome = {},                            -- JS/TS JSON
   html = {},                             -- HTML
   cssls = {},                            -- CSS
   -- psalm = {},                  -- PHP
   texlab = require("lsp_conf/texlab"),   -- LaTeX
   tinymist = require("lsp_conf/tinymist"), -- Typst
+  -- tinymist = {},
   ltex = require("lsp_conf/ltex"), -- languageTool (grammar-chacker)
   -- vale_ls = {},
   dockerls = {},                   -- DockerFILE
   cmake = {},                      -- CMake
   -- kotlin_language_server = {}, -- Kotlin
   -- volar = {},                  -- Vue
-  gdtoolkit = {},                 -- Godot
+  -- gdtoolkit = {},                 -- Godot
 }
 
 local packages = {
@@ -28,27 +30,12 @@ local packages = {
   "sqlfmt",   -- SQL
   "isort",    -- Python
   "black",    -- Python
-  "typstfmt", -- Typst
   "latexindent",
   "prettierd",
   "dprint",
   "markdown-toc",
   "markdownlint-cli2"
 }
-
--- -- ### Debug ###
--- function printTable(my_table, indent)
---   indent = indent or 0
---   for key, value in pairs(my_table) do
---     if type(value) == "table" then
---       print(string.rep(" ", indent) .. key .. " = {")
---       printTable(value, indent + 2)
---       print(string.rep(" ", indent) .. "}")
---     else
---       print(string.rep(" ", indent) .. key .. " = " .. tostring(value))
---     end
---   end
--- end
 
 local function get_servers(servers)
   local server_list = {}
