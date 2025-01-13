@@ -1,25 +1,4 @@
--- -- Disable default tab mapping for Copilot
--- vim.g.copilot_no_tab_map = true
-
--- -- Enable Copilot for all file types
--- vim.g.copilot_filetypes = {
---   ["*"] = true,
--- }
-
 return {
-  -- {
-  --   "github/copilot.vim",
-  --   lazy = false,
-  --   event = "InsertEnter",
-  --   config = function()
-  --     vim.keymap.set('i', '<C-Y>', 'copilot#Accept("\\<CR>")', {
-  --       expr = true,
-  --       replace_keycodes = false
-  --     })
-  --     vim.keymap.set('i', '<C-/>', '<Plug>(copilot-next)')
-  --     vim.keymap.set('i', '<C-\\>', '<Plug>(copilot-previous)')
-  --   end,
-  -- },
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
@@ -33,9 +12,10 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
-      "hrsh7th/nvim-cmp",            -- autocompletion for avante commands and mentions
-      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "zbirenbaum/copilot.lua",      -- for providers='copilot'
+      -- "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+      -- "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+      { 'echasnovski/mini.icons', version = false },
+      "zbirenbaum/copilot.lua", -- for providers='copilot'
       {
         -- support for image pasting
         "HakonHarnes/img-clip.nvim",
@@ -70,9 +50,9 @@ return {
       copilot = {
         endpoint = "https://api.githubcopilot.com",
         model = "gpt-4o-2024-08-06",
-        proxy = nil,        -- [protocol://]host[:port] Use this proxy
+        proxy = nil,            -- [protocol://]host[:port] Use this proxy
         allow_insecure = false, -- Allow insecure server connections
-        timeout = 30000,    -- Timeout in milliseconds
+        timeout = 30000,        -- Timeout in milliseconds
         temperature = 0,
         max_tokens = 4096,
         -- max_tokens = 8198,

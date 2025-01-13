@@ -1,4 +1,4 @@
-return {
+local obsidian = {
   "epwalsh/obsidian.nvim",
   lazy = true,
   -- event = { "BufReadPre /Users/miaoyuanrong/Documents/Obsidian_Vault/**.md" },
@@ -105,7 +105,7 @@ return {
     -- Optional, configure additional syntax highlighting / extmarks.
     -- This requires you have `conceallevel` set to 1 or 2. See `:help conceallevel` for more details.
     ui = {
-      enable = false,          -- set to false to disable all additional syntax features
+      enable = false,         -- set to false to disable all additional syntax features
       update_debounce = 200,  -- update delay after a text change (in milliseconds)
       max_file_length = 5000, -- disable UI features for files with more than this many lines
       -- Define how various check-boxes are displayed
@@ -152,6 +152,9 @@ return {
     require("obsidian").setup(opts)
 
     vim.keymap.set("n", "<leader>fv", "<cmd>ObsidianSearch<CR>", { noremap = true })
-
   end,
+}
+
+return {
+  -- obsidian
 }

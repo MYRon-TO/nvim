@@ -1,17 +1,26 @@
-local M = {
-  "hrsh7th/nvim-cmp",
-  cond = vim.g.vscode == nil,
+local blink = {
+  'saghen/blink.cmp',
+  lazy = true,
+  event = "InsertEnter",
+  -- optional: provides snippets for the snippet source
   dependencies = {
-    { "hrsh7th/cmp-nvim-lsp", },
-    { "hrsh7th/cmp-buffer", },
-    { "hrsh7th/cmp-path", },
-    { "hrsh7th/cmp-cmdline", },
-    { "hrsh7th/cmp-calc", },
-
-    { "kdheepak/cmp-latex-symbols", },
-
+    'rafamadriz/friendly-snippets',
     {
-      "zbirenbaum/copilot-cmp",
+      'echasnovski/mini.icons',
+      version = false,
+      lazy = true,
+      opts = function()
+        require('mini.icons').mock_nvim_web_devicons()
+        return {
+          lsp = {
+            copilot = { glyph = '', hl = 'CmpCopilot' },
+          }
+        }
+      end
+    },
+    -- "kdheepak/cmp-latex-symbols",
+    {
+      "giuxtaposition/blink-cmp-copilot",
       dependencies = {
         {
           "zbirenbaum/copilot.lua",
@@ -24,305 +33,174 @@ local M = {
           end
         },
       },
-      lazy = true,
-      config = function()
-        require("copilot_cmp").setup()
-      end
-    },
-
-    {
-      'L3MON4D3/LuaSnip',
-      build = "make install_jsregexp",
-      dependencies = { "rafamadriz/friendly-snippets" },
-    },
-    { 'saadparwaiz1/cmp_luasnip', },
-    {
-      'onsails/lspkind-nvim',
-      config = function()
-        require('lspkind').init({
-          -- DEPRECATED (use mode instead): enables text annotations
-          --
-          -- default: true
-          -- with_text = true,
-
-          -- defines how annotations are shown
-          -- default: symbol
-          -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
-          mode = 'text_symbol',
-
-          -- default symbol map
-          -- can be either 'default' (requires nerd-fonts font) or
-          -- 'codicons' for codicon preset (requires vscode-codicons font)
-          --
-          -- default: 'default'
-          preset = 'default',
-
-          -- override preset symbols
-          --
-          -- default: {}
-        })
-      end
     },
   },
-  event = {
-    "InsertEnter",
-    "CmdlineEnter",
-  },
-}
+  -- use a release tag to download pre-built binaries
+  version = '*',
 
--- local has_words_before = function()
---     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
---     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
--- end
--- local limitStr = function(str)
---     if #str > 25 then
---         str = string.sub(str, 1, 22) .. "..."
---     end
---     return str
--- end
+  ---@module 'blink.cmp'
+  ---@type blink.cmp.Config
+  opts = {
+    -- See the full "keymap" documentation for information on defining your own keymap.
+    keymap = {
+      ---@alias preset "defualt" | "super-tab"| "enter"
+      preset = "enter",
 
-function M.config()
-  local symbol_map = {
-    Text = '  ',
-    Variable = '  ',
-    Class = '  ',
-    Interface = '  ',
-    Module = '  ',
-    Property = '  ',
-    Unit = '  ',
-    Keyword = '  ',
-    Snippet = '󱪇  ',
-    Color = '  ',
-    File = '  ',
-    Reference = '  ',
-    Folder = '  ',
-    EnumMember = '  ',
-    Constant = '  ',
-    Struct = '  ',
-    Event = '  ',
-    Operator = '  ',
-    TypeParameter = '  ',
-    Method = "m",
-    Function = "󰊕",
-    Constructor = "",
-    Field = "",
-    Value = "󰎠",
-    Enum = "",
-    Codeium = "󰚩",
-    Copilot = "",
-  }
+      ['<C-h>'] = { 'show', 'show_documentation', 'hide_documentation' },
+      ['<C-j>'] = { 'select_next', 'fallback' },
+      ['<C-k>'] = { 'select_prev', 'fallback' },
+      ['<C-p>'] = { 'fallback' },
+      ['<C-n>'] = { 'fallback' },
+      ['<C-space>'] = { 'fallback' },
 
-  -- require("luasnip/loaders/from_vscode").lazy_load()  -- load the friendly-snippets
-  require("luasnip/loaders/from_vscode").lazy_load({ paths = require("env/snip_path") }) -- load the friendly-snippets
+      cmdline = {
+        preset = "super-tab",
 
-  local has_words_before = function()
-    unpack = unpack or table.unpack
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-  end
-  local luasnip = require("luasnip")
-  local cmp = require("cmp")
-  local compare = require('cmp.config.compare')
-  cmp.setup {
-    sorting = {
-      comparators = {
-        compare.sort_text,
-        compare.offset,
-        compare.exact,
-        compare.score,
-        compare.recently_used,
-        compare.kind,
-        compare.length,
-        compare.order,
+        ['<C-h>'] = { 'show', 'show_documentation', 'hide_documentation' },
+        ['<C-j>'] = { 'select_next', 'fallback' },
+        ['<C-k>'] = { 'select_prev', 'fallback' },
+        ['<C-p>'] = { 'fallback' },
+        ['<C-n>'] = { 'fallback' },
+        ['<C-space>'] = { 'fallback' },
       }
     },
-    snippet = {
-      expand = function(args)
-        luasnip.lsp_expand(args.body) -- For `luasnip` users.
-      end,
-    },
-    mapping = {
-      ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-      ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
 
-      ["<C-h>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-      ["<C-e>"] = cmp.mapping {
-        i = cmp.mapping.abort(),
-        c = cmp.mapping.close(),
-      },
-      -- Accept currently selected item. If none selected, `select` first item.
-      -- Set `select` to `false` to only confirm explicitly selected items.
-      ["<CR>"] = cmp.mapping.confirm { select = false },
-
-      ["<c-j>"] = cmp.mapping(function(fallback)
-        if luasnip.expand_or_jumpable() then
-          luasnip.expand_or_jump()
-        else
-          fallback()
-        end
-      end, {
-        "i",
-        "s",
-      }),
-
-      ["<c-k>"] = cmp.mapping(function(fallback)
-        if luasnip.jumpable(-1) then
-          luasnip.jump(-1)
-        else
-          fallback()
-        end
-      end, {
-        "i",
-        "s",
-      }),
-
-      ["<Tab>"] = cmp.mapping(function(fallback)
-        if luasnip.choice_active() then
-          luasnip.change_choice(1)
-        elseif cmp.visible() then
-          cmp.select_next_item()
-        elseif luasnip.expandable() then
-          luasnip.expand()
-        else
-          fallback()
-        end
-      end, {
-        "i",
-        "s",
-        "c",
-      }),
-
-      ["<S-Tab>"] = cmp.mapping(function(fallback)
-        if luasnip.choice_active() then
-          luasnip.change_choice(-1)
-        elseif cmp.visible() then
-          cmp.select_prev_item()
-        else
-          fallback()
-        end
-      end, {
-        "i",
-        "s",
-        "c",
-      }),
+    appearance = {
+      -- Sets the fallback highlight groups to nvim-cmp's highlight groups
+      -- Useful for when your theme doesn't support blink.cmp
+      -- Will be removed in a future release
+      use_nvim_cmp_as_default = true,
+      -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+      -- Adjusts spacing to ensure icons are aligned
+      nerd_font_variant = 'mono',
     },
-    formatting = {
-      -- fields = { "kind", "abbr", "menu" },
-      -- maxwidth = 80,
-      -- maxheight = 10,
-      -- format = function(entry, vim_item)
-      --     local kind = lspkind.cmp_format({
-      --         mode = "symbol_text",
-      --         symbol_map = symbol_map,
-      --     })(entry, vim_item)
-      --     local strings = vim.split(kind.kind, "%s", { trimempty = true })
-      --     kind.kind = " " .. (strings[1] or "") .. " "
-      --     kind.menu = limitStr(entry:get_completion_item().detail or "")
-
-      --     return kind
-      -- end,
-      format = require('lspkind').cmp_format({
-        mode = 'symbol_text',  -- show only symbol annotations
-        maxwidth = 100,        -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-        ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-
-        -- The function below will be called before any actual modifications from lspkind
-        -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-        -- before = function(entry, vim_item)
-        --      vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
-        --     return vim_item
-        -- end
-        before = function(_, vim_item)
-          vim_item.kind = (symbol_map[vim_item.kind] or '') .. '[' .. vim_item.kind .. ']'
-          return vim_item
-        end
-      })
-    },
-    sources = {
-      { name = "copilot"},
-      { name = "nvim_lsp" },
-      { name = "nvim_lua" },
-      { name = 'luasnip' },
-      { name = "orgmode" },
-      { name = "buffer" },
-      { name = "path" },
-      { name = 'treesitter' },
-      {
-        name = "latex_symbols",
-        option = {
-          strategy = 0, -- mixed
-        },
-      },
-    },
-    confirm_opts = {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = false,
-    },
-    window = {
-      -- completion = {
-      --     -- winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
-      --     col_offset = -3,
-      --     side_padding = 0,
-      -- },
-      completion = cmp.config.window.bordered(),
-      documentation = cmp.config.window.bordered(),
-    },
-    experimental = {
-      ghost_text = false,
-    },
-    view = {
-      entries = "custom",
-    },
-  }
-  cmp.setup.cmdline("/", {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-      { name = "buffer" },
-    },
-  })
-  cmp.setup.cmdline(":", {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-        { name = "path" },
-      },
-      {
-        {
-          name = "cmdline",
-          option = {
-            -- ignore_cmds = { "Man", "!" },
+    completion = {
+      menu = {
+        border = 'none',
+        draw = {
+          components = {
+            kind_icon = {
+              ellipsis = false,
+              text = function(ctx)
+                local kind_icon, _, _ = require('mini.icons').get('lsp', ctx.kind)
+                return kind_icon
+              end,
+              -- Optionally, you may also use the highlights from mini.icons
+              highlight = function(ctx)
+                local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
+                return hl
+              end,
+            }
           },
+          columns = {
+            { "kind_icon", "label", "label_description", gap = 1 },
+            { "kind" }
+          },
+          -- treesitter = { "lsp" },
         },
-      }),
-  })
-end
+      }
+    },
 
-local N = {
-  "folke/neodev.nvim",
-  lazy   = true,
-  event  = {
-    "BufReadPre " .. vim.fn.expand "~" .. "/.config/nvim/**.lua",
-  },
-  config = function()
-    require("neodev").setup {
-      library = {
-        enabled = true, -- when not enabled, neodev will not change any settings to the LSP server
-        -- these settings will be used for your Neovim config directory
-        runtime = true, -- runtime path
-        types = true,   -- full signature, docs and completion of vim.api, vim.treesitter, vim.lsp and others
-        -- plugins = true, -- installed opt or start plugins in packpath
-        -- you can also specify the list of plugins to make available as a workspace library
-        plugins = { "nvim-dap-ui", "nvim-treesitter", "plenary.nvim", "telescope.nvim" },
+    -- Default list of enabled providers defined so that you can extend it
+    -- elsewhere in your config, without redefining it, due to `opts_extend`
+    sources = {
+      default = {
+        "copilot",
+        "lazydev",
+        "lsp",
+        "path",
+        "snippets",
+        "buffer",
+        -- "latex_symbols",
+        "avante_commands",
+        "avante_mentions",
+        "avante_files",
       },
-      setup_jsonls = true, -- configures jsonls to provide completion for project specific .luarc.json files
-      -- for your Neovim config directory, the config.library settings will be used as is
-      -- for plugin directories (root_dirs having a /lua directory), config.library.plugins will be disabled
-      -- for any other directory, config.library.enabled will be set to false
-      lspconfig = true,
-      -- much faster, but needs a recent built of lua-language-server
-      -- needs lua-language-server >= 3.6.0
-      pathStrict = true,
-    }
-  end,
+      providers = {
+        copilot = {
+          name = "copilot",
+          module = "blink-cmp-copilot",
+          score_offset = 100,
+          async = true,
+          transform_items = function(_, items)
+            local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
+            local kind_idx = #CompletionItemKind + 1
+            CompletionItemKind[kind_idx] = "Copilot"
+            for _, item in ipairs(items) do
+              item.kind = kind_idx
+            end
+            return items
+          end,
+        },
+        lazydev = {
+          name = "LazyDev",
+          module = "lazydev.integrations.blink",
+          -- make lazydev completions top priority (see `:h blink.cmp`)
+          score_offset = 100,
+        },
+        avante_commands = {
+          name = "avante_commands",
+          module = "blink.compat.source",
+          score_offset = 90, -- show at a higher priority than lsp
+          opts = {},
+        },
+        avante_files = {
+          name = "avante_commands",
+          module = "blink.compat.source",
+          score_offset = 100, -- show at a higher priority than lsp
+          opts = {},
+        },
+        avante_mentions = {
+          name = "avante_mentions",
+          module = "blink.compat.source",
+          score_offset = 1000, -- show at a higher priority than lsp
+          opts = {},
+        },
+        -- latex_symboles = {
+        --   name = 'latex_symbols',
+        --   module = "blink.compat.suorces",
+        --   -- all blink.cmp source config options work as normal:
+        --   score_offset = -3,
+
+        --   -- this table is passed directly to the proxied completion source
+        --   -- as the `option` field in nvim-cmp's source config
+        --   --
+        --   -- this is NOT the same as the opts in a plugin's lazy.nvim spec
+        --   opts = {
+        --     -- this is an option from cmp-digraphs
+        --     cache_digraphs_on_start = true,
+        --   },
+        -- }
+      },
+    },
+  },
+  opts_extend = { "sources.default" }
 }
 
-return { M, N }
+local blink_compat = {
+  'saghen/blink.compat',
+  -- use the latest release, via version = '*', if you also use the latest release for blink.cmp
+  version = '*',
+  -- lazy.nvim will automatically load the plugin when it's required by blink.cmp
+  lazy = true,
+  -- make sure to set opts so that lazy.nvim calls blink.compat's setup
+  opts = {},
+}
+
+local lazydev = {
+  "folke/lazydev.nvim",
+  ft = "lua", -- only load on lua files
+  opts = {
+    library = {
+      -- See the configuration section for more details
+      -- Load luvit types when the `vim.uv` word is found
+      { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+    },
+  },
+}
+
+return {
+  blink_compat,
+  blink,
+  lazydev
+}

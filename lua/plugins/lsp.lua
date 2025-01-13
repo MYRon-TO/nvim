@@ -20,6 +20,7 @@ local L = {
   lazy = "LazyFile",
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
+    "saghen/blink.cmp"
   },
 }
 
@@ -27,25 +28,21 @@ function L.config()
   -- Setup language servers.
   local lspconfig = require('lspconfig')
 
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+  -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+  local capabilities = require('blink.cmp').get_lsp_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
 
   for server_name, conf_opts in pairs(require("lsp_conf").lsp_servers) do
     local opts = conf_opts
-    -- opts.on_attach = on_attach
     opts.capabilities = vim.tbl_deep_extend("force", conf_opts.capabilities or {}, capabilities)
-    -- if server_name == "tinymist" then
-    --   _PrintTable(opts)
-    -- end
+    -- opts.on_attach = on_attach
+    -- _PrintTable(opts)
     lspconfig[server_name].setup(opts)
   end
 
   -- Global mappings.
   -- See `:help vim.diagnostic.*` for documentation on any of the below functions
   vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-  vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
   vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
   -- Use LspAttach autocommand to only map the following keys

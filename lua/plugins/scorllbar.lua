@@ -1,6 +1,6 @@
 return {
   "petertriho/nvim-scrollbar",
-  lazy = false,
+  lazy = true,
   event = "UIEnter",
   config = function()
     require('gitsigns').setup()

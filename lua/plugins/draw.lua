@@ -27,4 +27,6 @@ vim.api.nvim_set_keymap('n', '<leader>v', ":lua Toggle_venn()<CR>", { noremap = 
 
 return {
   "jbyuki/venn.nvim",
+  lazy = true,
+  keys = { "<leader>v" },
 }
