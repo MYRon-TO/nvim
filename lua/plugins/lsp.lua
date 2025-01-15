@@ -49,7 +49,21 @@ function L.config()
 
   -- rime-ls
   if ENABLE_RIME_LS then
-    require("patchs.rime_ls").setup_rime()
+    require('patchs.rime_ls').setup({
+      filetype = "*",
+    })
+    capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
+    lspconfig.rime_ls.setup({
+      init_options = {
+        enabled = vim.g.rime_enabled,
+        shared_data_dir = '/usr/share/rime-data',
+        user_data_dir = vim.fn.expand('~/.local/share/rime-ls'),
+        log_dir = vim.fn.expand('~/.local/share/rime-ls'),
+        always_incomplete = true, -- This is for wubi users
+        long_filter_text = true
+      },
+      capabilities = capabilities,
+    })
   end
 
   -- Global mappings.
@@ -73,7 +87,7 @@ function L.config()
       vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
       -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
       -- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-      vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+      -- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
       vim.keymap.set('n', '<space>wl', function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
       end, opts)
@@ -86,7 +100,6 @@ function L.config()
       -- end, opts)
     end,
   })
-
 end
 
 local M = {
