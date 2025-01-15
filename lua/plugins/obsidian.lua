@@ -5,28 +5,20 @@ local obsidian = {
   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
   event = {
     "BufReadPre " .. vim.fn.expand "~" .. "/Documents/Obsidian_Vault/**.md",
-    "BufReadPre " .. vim.fn.expand "~" .. "/Documents/VocabularyBook/**.md",
+    -- "BufReadPre " .. vim.fn.expand "~" .. "/Documents/VocabularyBook/**.md",
   },
   dependencies = {
     -- Required.
     "nvim-lua/plenary.nvim",
 
     -- Optional, for completion.
-    "hrsh7th/nvim-cmp",
+    -- "hrsh7th/nvim-cmp",
 
     -- Optional, for search and quick-switch functionality.
     "nvim-telescope/telescope.nvim",
 
     -- Optional, an alternative to telescope for search and quick-switch functionality.
     -- "ibhagwan/fzf-lua"
-
-    -- Optional, another alternative to telescope for search and quick-switch functionality.
-    -- "junegunn/fzf",
-    -- "junegunn/fzf.vim"
-
-    -- Optional, alternative to nvim-treesitter for syntax highlighting.
-    -- "godlygeek/tabular",
-    -- "preservim/vim-markdown",
   },
 
   opts = {
@@ -101,6 +93,10 @@ local obsidian = {
     -- 2. "vsplit" - to open in a vertical split if there's not already a vertical split
     -- 3. "hsplit" - to open in a horizontal split if there's not already a horizontal split
     open_notes_in = "current",
+    completion = {
+      -- Set to false to disable completion.
+      nvim_cmp = false,
+    },
 
     -- Optional, configure additional syntax highlighting / extmarks.
     -- This requires you have `conceallevel` set to 1 or 2. See `:help conceallevel` for more details.
@@ -150,11 +146,10 @@ local obsidian = {
   config = function(_, opts)
     -- vim.opt_local.conceallevel = 2
     require("obsidian").setup(opts)
-
     vim.keymap.set("n", "<leader>fv", "<cmd>ObsidianSearch<CR>", { noremap = true })
   end,
 }
 
 return {
-  -- obsidian
+  obsidian
 }

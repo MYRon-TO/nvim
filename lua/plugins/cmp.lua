@@ -18,7 +18,7 @@ local blink = {
         }
       end
     },
-    -- "kdheepak/cmp-latex-symbols",
+    "kdheepak/cmp-latex-symbols",
     {
       "giuxtaposition/blink-cmp-copilot",
       dependencies = {
@@ -52,6 +52,19 @@ local blink = {
       ['<C-p>'] = { 'fallback' },
       ['<C-n>'] = { 'fallback' },
       ['<C-space>'] = { 'fallback' },
+
+      -- for rime_ls
+      ['<space>'] = {
+        function(cmp)
+          if not vim.g.rime_enabled then return false end
+          local rime_item_index = require("patchs.rime_ls.utils").get_n_rime_item_index(1)
+          if #rime_item_index ~= 1 then return false end
+          -- If you want to select more than once,
+          -- just update this cmp.accept with vim.api.nvim_feedkeys('1', 'n', true)
+          -- The rest can be updated similarly
+          return cmp.accept({ index = rime_item_index[1] })
+        end,
+        'fallback' },
 
       cmdline = {
         preset = "super-tab",
@@ -90,7 +103,38 @@ local blink = {
                 local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
                 return hl
               end,
-            }
+            },
+            source_name = {
+              text = function(ctx) return '[' .. ctx.source_name .. ']' end
+            },
+            label = {
+              text = function(ctx)
+                if not vim.g.rime_enabled then
+                  return ctx.label .. ctx.label_detail
+                end
+                local client = vim.lsp.get_client_by_id(ctx.item.client_id)
+                if not client or client.name ~= 'rime_ls' then
+                  return ctx.label .. ctx.label_detail
+                end
+                local code_start = #ctx.label_detail + 1
+                for i = 1, #ctx.label_detail do
+                  local ch = string.sub(ctx.label_detail, i, i)
+                  if ch >= 'a' and ch <= 'z' then
+                    code_start = i
+                    break
+                  end
+                end
+                local code_end = #ctx.label_detail - 4
+                return ctx.label ..
+                    ' <' ..
+                    string.gsub(string.sub(ctx.label_detail,
+                        code_start,
+                        code_end),
+                      '  ·  ',
+                      ' ') ..
+                    '>'
+              end
+            },
           },
           columns = {
             { "kind_icon", "label", "label_description", gap = 1 },
@@ -111,12 +155,24 @@ local blink = {
         "path",
         "snippets",
         "buffer",
-        -- "latex_symbols",
+        "latex_symbols",
         "avante_commands",
         "avante_mentions",
         "avante_files",
       },
       providers = {
+        lsp = {
+          transform_items = function(_, items)
+            -- the default transformer will do this
+            for _, item in ipairs(items) do
+              if item.kind == require('blink.cmp.types').CompletionItemKind.Snippet then
+                item.score_offset = item.score_offset - 3
+              end
+            end
+            -- you can define your own filter for rime item
+            return items
+          end
+        },
         copilot = {
           name = "copilot",
           module = "blink-cmp-copilot",
@@ -156,21 +212,13 @@ local blink = {
           score_offset = 1000, -- show at a higher priority than lsp
           opts = {},
         },
-        -- latex_symboles = {
-        --   name = 'latex_symbols',
-        --   module = "blink.compat.suorces",
-        --   -- all blink.cmp source config options work as normal:
-        --   score_offset = -3,
-
-        --   -- this table is passed directly to the proxied completion source
-        --   -- as the `option` field in nvim-cmp's source config
-        --   --
-        --   -- this is NOT the same as the opts in a plugin's lazy.nvim spec
-        --   opts = {
-        --     -- this is an option from cmp-digraphs
-        --     cache_digraphs_on_start = true,
-        --   },
-        -- }
+        latex_symbols = {
+          name = 'latex_symbols',
+          module = "blink.compat.source",
+          score_offset = 100,
+          opts = {
+          },
+        }
       },
     },
   },

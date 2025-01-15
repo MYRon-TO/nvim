@@ -1,9 +1,9 @@
 local lsp_servers = {
   clangd = require("lsp_conf/clangd"),   -- C/C++
   lua_ls = require("lsp_conf/lua_ls"),   -- Lua
-  rust_analyzer = {},          -- Rust make sure it was installed but not to load
+  -- rust_analyzer = {},          -- Rust make sure it was installed but not to load
   jdtls = require("lsp_conf/jdtls"),     -- Java
-  pyright = require("lsp_conf/pyright"), -- Python
+  basedpyright = require("lsp_conf/basedpyright"), -- Python
   marksman = {},                         -- Markdown
   -- bashls = {},                 -- Bash
   gopls = {},                            -- Go
@@ -42,7 +42,7 @@ local function get_servers(servers)
   for server, _ in pairs(servers) do
     table.insert(server_list, server)
   end
-  -- table.insert(server_list, "rust_analyzer")
+  table.insert(server_list, "rust_analyzer")
   return server_list
 end
 

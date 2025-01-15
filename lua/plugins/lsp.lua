@@ -2,18 +2,25 @@ local servers = require("lsp_conf").servers
 local packages = require("lsp_conf").packages
 
 -- ### Debug ###
-function _PrintTable(my_table, indent)
-  indent = indent or 0
-  for key, value in pairs(my_table) do
-    if type(value) == "table" then
-      print(string.rep(" ", indent) .. key .. " = {")
-      _PrintTable(value, indent + 2)
-      print(string.rep(" ", indent) .. "}")
-    else
-      print(string.rep(" ", indent) .. key .. " = " .. tostring(value))
-    end
-  end
-end
+-- function _PrintTable(my_table, indent)
+--   indent = indent or 0
+--   for key, value in pairs(my_table) do
+--     if type(value) == "table" then
+--       print(string.rep(" ", indent) .. key .. " = {")
+--       _PrintTable(value, indent + 2)
+--       print(string.rep(" ", indent) .. "}")
+--     else
+--       print(string.rep(" ", indent) .. key .. " = " .. tostring(value))
+--     end
+--   end
+-- end
+
+-- function _PrintClients()
+--   local clients = vim.lsp.get_active_clients()
+--   for _, client in ipairs(clients) do
+--     print(client.name, client.offset_encoding)
+--   end
+-- end
 
 local L = {
   "neovim/nvim-lspconfig",
@@ -38,6 +45,11 @@ function L.config()
     -- opts.on_attach = on_attach
     -- _PrintTable(opts)
     lspconfig[server_name].setup(opts)
+  end
+
+  -- rime-ls
+  if ENABLE_RIME_LS then
+    require("patchs.rime_ls").setup_rime()
   end
 
   -- Global mappings.
@@ -74,6 +86,7 @@ function L.config()
       -- end, opts)
     end,
   })
+
 end
 
 local M = {
