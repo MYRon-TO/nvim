@@ -1,3 +1,5 @@
+vim.system({ 'rime_ls', '--listen', '127.0.0.1:9257' })
+
 local im_select = {
   "keaising/im-select.nvim",
   lazy = true,
@@ -38,45 +40,47 @@ local im_select = {
     })
   end,
 }
--- local rime_ls = {
---   "liubianshi/cmp-lsp-rimels",
---   lazy = true,
---   event = "InsertEnter",
---   ft = { "org", "markdown", "tex", "typst" },
---   config = function()
---     vim.system({ 'rime_ls', '--listen', '127.0.0.1:9257' })
---     require('rimels').setup(
---       {
---         keys = { start = ";f", stop = ";;", esc = ";j", undo = ";u" },
---         cmd = vim.lsp.rpc.connect("127.0.0.1", 9257),
---         shared_data_dir = ENV.rime_shared_data_dir,
---         schema_trigger_character = "&", -- [since v0.2.0] 当输入此字符串时请求补全会触发 “方案选单”
---         -- detectors = {
---         --   with_treesitter = {
---         --     markdown = detector_for_markdown,
---         --   },
---         -- },
---         probes = {
---           ignore = {},
---           add = {
---             probe_in_mathblock = function()
---               local info = vim.inspect_pos()
---               for _, syn in ipairs(info.syntax) do
---                 if syn.hl_group_link:match "mathblock" then
---                   return true
---                 end
---               end
---               for _, ts in ipairs(info.treesitter) do
---                 if ts.capture == "markup.math" then
---                   return true
---                 end
---               end
---               return false
---             end
---           },
---         },
---       }
---     )
---   end,
--- }
-return { im_select }
+
+local rime_ls = {
+  "liubianshi/cmp-lsp-rimels",
+  branch = "blink.cmp",
+  lazy = true,
+  ft = { "org", "markdown", "tex", "typst" },
+  config = function()
+    require('rimels').setup(
+      {
+        keys = { start = ";f", stop = ";;", esc = ";j", undo = ";u" },
+        cmd = vim.lsp.rpc.connect("127.0.0.1", 9257),
+        shared_data_dir = ENV.rime_shared_data_dir,
+        schema_trigger_character = "&", -- [since v0.2.0] 当输入此字符串时请求补全会触发 “方案选单”
+        -- detectors = {
+        --   with_treesitter = {
+        --     markdown = detector_for_markdown,
+        --   },
+        -- },
+        probes = {
+          ignore = {},
+          add = {},
+        },
+        settings = {
+          offsetEncoding = "utf-16"
+        },
+        cmp_keymaps = {
+          disable = {
+            space                       = false,
+            numbers                     = false,
+            enter                       = false,
+            brackets                    = false,
+            backspace                   = false,
+            punctuation_upload_directly = true,
+          }
+        }
+      }
+    )
+  end,
+}
+
+return {
+  im_select,
+  rime_ls
+}

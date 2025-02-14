@@ -1,3 +1,6 @@
+-- for rime_ls
+vim.opt.iskeyword = "_,49-57,A-Z,a-z"
+
 local blink = {
   'saghen/blink.cmp',
   lazy = true,
@@ -47,24 +50,12 @@ local blink = {
       preset = "enter",
 
       ['<C-h>'] = { 'show', 'show_documentation', 'hide_documentation' },
+      ['<C-e>'] = { 'hide' },
       ['<C-j>'] = { 'select_next', 'fallback' },
       ['<C-k>'] = { 'select_prev', 'fallback' },
       ['<C-p>'] = { 'fallback' },
       ['<C-n>'] = { 'fallback' },
       ['<C-space>'] = { 'fallback' },
-
-      -- for rime_ls
-      ['<space>'] = {
-        function(cmp)
-          if not vim.g.rime_enabled then return false end
-          local rime_item_index = require("patchs.rime_ls.utils").get_n_rime_item_index(1)
-          if #rime_item_index ~= 1 then return false end
-          -- If you want to select more than once,
-          -- just update this cmp.accept with vim.api.nvim_feedkeys('1', 'n', true)
-          -- The rest can be updated similarly
-          return cmp.accept({ index = rime_item_index[1] })
-        end,
-        'fallback' },
 
       cmdline = {
         preset = "super-tab",
@@ -88,6 +79,12 @@ local blink = {
       nerd_font_variant = 'mono',
     },
     completion = {
+      list = {
+        selection = {
+          preselect = false,
+          auto_insert = true
+        }
+      },
       menu = {
         border = 'none',
         draw = {
@@ -107,34 +104,6 @@ local blink = {
             source_name = {
               text = function(ctx) return '[' .. ctx.source_name .. ']' end
             },
-            label = {
-              text = function(ctx)
-                if not vim.g.rime_enabled then
-                  return ctx.label .. ctx.label_detail
-                end
-                local client = vim.lsp.get_client_by_id(ctx.item.client_id)
-                if not client or client.name ~= 'rime_ls' then
-                  return ctx.label .. ctx.label_detail
-                end
-                local code_start = #ctx.label_detail + 1
-                for i = 1, #ctx.label_detail do
-                  local ch = string.sub(ctx.label_detail, i, i)
-                  if ch >= 'a' and ch <= 'z' then
-                    code_start = i
-                    break
-                  end
-                end
-                local code_end = #ctx.label_detail - 4
-                return ctx.label ..
-                    ' <' ..
-                    string.gsub(string.sub(ctx.label_detail,
-                        code_start,
-                        code_end),
-                      '  ·  ',
-                      ' ') ..
-                    '>'
-              end
-            },
           },
           columns = {
             { "kind_icon", "label", "label_description", gap = 1 },
@@ -149,7 +118,6 @@ local blink = {
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
       default = {
-        "copilot",
         "lazydev",
         "lsp",
         "path",
@@ -159,9 +127,11 @@ local blink = {
         "avante_commands",
         "avante_mentions",
         "avante_files",
+        "copilot",
       },
       providers = {
         lsp = {
+          score_offset = 100,
           transform_items = function(_, items)
             -- the default transformer will do this
             for _, item in ipairs(items) do
@@ -176,7 +146,7 @@ local blink = {
         copilot = {
           name = "copilot",
           module = "blink-cmp-copilot",
-          score_offset = 100,
+          score_offset = -10,
           async = true,
           transform_items = function(_, items)
             local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
@@ -197,7 +167,7 @@ local blink = {
         avante_commands = {
           name = "avante_commands",
           module = "blink.compat.source",
-          score_offset = 90, -- show at a higher priority than lsp
+          score_offset = 100,
           opts = {},
         },
         avante_files = {

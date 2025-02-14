@@ -7,19 +7,29 @@ local telescope = {
   },
   lazy = true,
   keys = {
-    { '<leader>ff' },
-    { '<leader>fg' },
-    { '<leader>fb' },
-    { '<leader>fh' },
+    { '<leader>fh',
+      require('telescope.builtin').help_tags
+    },
+    { '<leader>fb',
+      require('telescope.builtin').buffers
+    },
+    {
+      '<leader>fg',
+      require('telescope.builtin').live_grep
+    },
+    {
+      "<leader>ff",
+      require('telescope.builtin').git_files
+    },
+    {
+      -- Warning: relative with plugin folke/todo-comments.nvim
+      "<leader>ft",
+      "<cmd>Telescope todo-comments todo<cr>",
+      desc = "Find TODO",
+    },
   },
 
   config = function()
-    local builtin = require('telescope.builtin')
-    vim.keymap.set('n', '<leader>ff', builtin.git_files, {})
-    vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-    vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-    vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-
     require('telescope').setup {
       defaults = {
         -- Default configuration for telescope goes here:

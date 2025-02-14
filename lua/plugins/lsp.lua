@@ -47,25 +47,6 @@ function L.config()
     lspconfig[server_name].setup(opts)
   end
 
-  -- rime-ls
-  if ENABLE_RIME_LS then
-    require('patchs.rime_ls').setup({
-      filetype = "*",
-    })
-    capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
-    lspconfig.rime_ls.setup({
-      init_options = {
-        enabled = vim.g.rime_enabled,
-        shared_data_dir = '/usr/share/rime-data',
-        user_data_dir = vim.fn.expand('~/.local/share/rime-ls'),
-        log_dir = vim.fn.expand('~/.local/share/rime-ls'),
-        always_incomplete = true, -- This is for wubi users
-        long_filter_text = true
-      },
-      capabilities = capabilities,
-    })
-  end
-
   -- Global mappings.
   -- See `:help vim.diagnostic.*` for documentation on any of the below functions
   vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
